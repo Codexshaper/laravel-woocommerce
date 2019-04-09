@@ -17,5 +17,15 @@
         "psr-4": {
             "Codexshaper\\Woocommerce\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codexshaper\\Woocommerce\\WooCommerceServiceProvider"
+            ],
+            "aliases": {
+                "WooCommerce": "Codexshaper\\Woocommerce\\WooCommerceServiceProvider"
+            }
+        }
     }
 }
