@@ -2,6 +2,7 @@
 
 namespace Codexshaper\Woocommerce;
 
+use Codexshaper\Woocommerce\WoocommerceApi;
 use Illuminate\Support\ServiceProvider;
 
 class WooCommerceServiceProvider extends ServiceProvider
@@ -15,12 +16,10 @@ class WooCommerceServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->mergeConfigFrom(
-            __DIR__.'/config/woocommerce.php', 'laravel-woocommerce'
-        );
+        
         $this->publishes([
             __DIR__.'/config/woocommerce.php' => config_path('woocommerce.php'),
-        ],'laravel-woocommerce');
+        ],'woocommerce');
     }
 
     /**
@@ -31,5 +30,13 @@ class WooCommerceServiceProvider extends ServiceProvider
     public function register()
     {
         
+        $this->mergeConfigFrom(
+            __DIR__.'/config/woocommerce.php', 'woocommerce'
+        );
+
+        $this->app->singleton('WoocommerceApi', function(){
+            return new WoocommerceApi(); 
+        });
+        // $app->alias('Codexshaper\Woocommerce\WoocommerceApi', 'WoocommerceApi');
     }
 }

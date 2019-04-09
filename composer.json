@@ -24,7 +24,7 @@
                 "Codexshaper\\Woocommerce\\WooCommerceServiceProvider"
             ],
             "aliases": {
-                "WooCommerce": "Codexshaper\\Woocommerce\\WooCommerceServiceProvider"
+                "Woocommerce": "Codexshaper\\Woocommerce\\Facades\\WoocommerceFacade"
             }
         }
     }
