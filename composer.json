@@ -1,0 +1,21 @@
+{
+    "name": "codexshaper/woocommerce",
+    "description": "WooCommerce Rest API with Laravel",
+    "type": "library",
+    "require": {
+        "automattic/woocommerce": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Md Abu Ahsan Basir",
+            "email": "maab.career@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Codexshaper\\Woocommerce\\": "src/"
+        }
+    }
+}
