@@ -1,8 +1,8 @@
 <?php
 
-namespace Codexshaper\Woocommerce;
+namespace Codexshaper\WooCommerce;
 
-use Codexshaper\Woocommerce\WoocommerceApi;
+use Codexshaper\WooCommerce\WooCommerceApi;
 use Illuminate\Support\ServiceProvider;
 
 class WooCommerceServiceProvider extends ServiceProvider
@@ -14,9 +14,7 @@ class WooCommerceServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        
+    { 
         $this->publishes([
             __DIR__.'/config/woocommerce.php' => config_path('woocommerce.php'),
         ],'woocommerce');
@@ -34,9 +32,9 @@ class WooCommerceServiceProvider extends ServiceProvider
             __DIR__.'/config/woocommerce.php', 'woocommerce'
         );
 
-        $this->app->singleton('WoocommerceApi', function(){
-            return new WoocommerceApi(); 
+        $this->app->singleton('WooCommerceApi', function(){
+            return new WooCommerceApi(); 
         });
-        // $app->alias('Codexshaper\Woocommerce\WoocommerceApi', 'WoocommerceApi');
+        $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WoocommerceApi');
     }
 }

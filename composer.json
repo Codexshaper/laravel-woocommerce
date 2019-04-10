@@ -15,16 +15,16 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Codexshaper\\Woocommerce\\": "src/"
+            "Codexshaper\\WooCommerce\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Codexshaper\\Woocommerce\\WooCommerceServiceProvider"
+                "Codexshaper\\WooCommerce\\WooCommerceServiceProvider"
             ],
             "aliases": {
-                "Woocommerce": "Codexshaper\\Woocommerce\\Facades\\WoocommerceFacade"
+                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
             }
         }
     }
