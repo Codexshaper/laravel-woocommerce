@@ -109,7 +109,7 @@ trait WooCommerceTrait
     public function previous()
     {
     	$currentPage = $this->current();
-        return ( --$currentPage > 1) ? $currentPage ? null;
+        return ( --$currentPage > 1) ? $currentPage : null;
     }
     /**
      * Return the next page number
@@ -119,6 +119,6 @@ trait WooCommerceTrait
     public function next()
     {
     	$currentPage = $this->current();
-        return ( ++$currentPage < $this->countPages()) ? $currentPage ? null;
+        return ( ++$currentPage < $this->countPages()) ? $currentPage : null;
     }
 }

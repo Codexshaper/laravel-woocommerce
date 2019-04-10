@@ -12,7 +12,7 @@
             "email": "maab.career@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Codexshaper\\WooCommerce\\": "src/"
