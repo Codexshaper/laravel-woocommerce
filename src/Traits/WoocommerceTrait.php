@@ -26,7 +26,7 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function first($endpoint='', $options = [])
+    public function find($endpoint='', $options = [])
     {
         return $this->client->get($endpoint, $options);
     }
