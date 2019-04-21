@@ -18,6 +18,19 @@ trait WooCommerceTrait
 	    return $this->client->get($endpoint, $options);
 	}
     /**
+     * GET method.
+     * Retrieve Single data
+     *
+     * @param string $endpoint API endpoint.
+     * @param array $options
+     *
+     * @return array
+     */
+    public function first($endpoint='', $options = [])
+    {
+        return $this->client->get($endpoint, $options);
+    }
+    /**
      * POST method.
      * Insert data
      *

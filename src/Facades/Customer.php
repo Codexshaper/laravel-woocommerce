@@ -2,8 +2,8 @@
 namespace Codexshaper\WooCommerce\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Codexshaper\WooCommerce\WooCommerceApi;
-class WooCommerce extends Facade
+
+class Customer extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -12,6 +12,6 @@ class WooCommerce extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return WooCommerceApi::class;
+        return 'Codexshaper\WooCommerce\Models\Customer';
     }
 }

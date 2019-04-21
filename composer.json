@@ -24,7 +24,10 @@
                 "Codexshaper\\WooCommerce\\WooCommerceServiceProvider"
             ],
             "aliases": {
-                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
+                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
+                "Product": "Codexshaper\\WooCommerce\\Facades\\Product",
+                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
+                "Customer": "Codexshaper\\WooCommerce\\Facades\\Customer",
             }
         }
     }
