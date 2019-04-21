@@ -2,6 +2,7 @@
 WooCommerce Rest API with Laravel
 
 #Install
+
 ```
 composer require codexshaper/woocommerce
 ```
@@ -11,7 +12,9 @@ composer require codexshaper/woocommerce
 ```
 php artisan vendor:publish --tag=woocommerce
 ```
+
 #Example for Product
+
 ```
 use Codexshaper\WooCommerce\Facades\Product;
 
@@ -27,6 +30,7 @@ public function product( Request $request )
 ```
 
 #Example for Order
+
 ```
 use Codexshaper\WooCommerce\Facades\Order;
 
@@ -42,6 +46,7 @@ public function order( Request $request )
 ```
 
 #Example for Customer
+
 ```
 use Codexshaper\WooCommerce\Facades\Customer;
 
@@ -54,6 +59,8 @@ public function customer( Request $request )
 {
   $customer = Customer::find($request->id);
 }
+
+```
 
 # You can also use ```WooCommerce``` Facades
 
@@ -92,6 +99,7 @@ public function customer( Request $request )
 ```
 
 # Use only Facade name
+
 ```
 use WooCommerce instead of Codexshaper\WooCommerce\Facades\WooCommerce;
 use Customer instead of Codexshaper\WooCommerce\Facades\Customer;
