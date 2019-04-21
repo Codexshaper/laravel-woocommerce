@@ -26,7 +26,7 @@
             "aliases": {
                 "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
                 "Product": "Codexshaper\\WooCommerce\\Facades\\Product",
-                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
+                "Order": "Codexshaper\\WooCommerce\\Facades\\Order",
                 "Customer": "Codexshaper\\WooCommerce\\Facades\\Customer"
             }
         }
