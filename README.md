@@ -98,7 +98,7 @@ public function customer( Request $request )
 }
 ```
 
-# Use only Facade name
+# Use Facade Alias
 
 ```
 use WooCommerce instead of Codexshaper\WooCommerce\Facades\WooCommerce;
