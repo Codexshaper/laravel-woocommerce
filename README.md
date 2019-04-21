@@ -62,7 +62,7 @@ public function customer( Request $request )
 
 ```
 
-# You can also use ```WooCommerce``` Facades
+# You can also use ```WooCommerce``` Facade
 
 ```
 use Codexshaper\WooCommerce\Facades\WooCommerce;
