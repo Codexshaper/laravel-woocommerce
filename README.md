@@ -36,7 +36,7 @@ use Codexshaper\WooCommerce\Facades\Order;
 
 public function orders()
 {
-  return Order::all('orders');
+  return Order::all();
 }
 
 public function order( Request $request )
@@ -52,7 +52,7 @@ use Codexshaper\WooCommerce\Facades\Customer;
 
 public function customers()
 {
-  return Customer::all('customers');
+  return Customer::all();
 }
 
 public function customer( Request $request )
