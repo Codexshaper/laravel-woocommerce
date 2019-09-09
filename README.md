@@ -20,7 +20,7 @@ WOOCOMMERCE_STORE_URL=YOUR_WEBSITE_URL
 WOOCOMMERCE_CONSUMER_KEY=API_CONSUMER_KEY
 WOOCOMMERCE_CONSUMER_SECRET=API_CONSUMER_SECRET
 ```
-# Do you need any help to create your own API credentials? Read the officials Doc https://docs.woocommerce.com/document/woocommerce-rest-api/
+#Do you need any help to create your own API credentials? Read the officials Doc https://docs.woocommerce.com/document/woocommerce-rest-api/
 
 #Example for Product
 
