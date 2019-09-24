@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Codexshaper\WooCommerce\Facades;
 
 use Illuminate\Support\Facades\Facade;

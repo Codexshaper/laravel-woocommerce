@@ -14,10 +14,10 @@ class WooCommerceServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    { 
+    {
         $this->publishes([
-            __DIR__.'/config/woocommerce.php' => config_path('woocommerce.php'),
-        ],'woocommerce');
+            __DIR__ . '/config/woocommerce.php' => config_path('woocommerce.php'),
+        ], 'woocommerce');
     }
 
     /**
@@ -27,13 +27,13 @@ class WooCommerceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
+
         $this->mergeConfigFrom(
-            __DIR__.'/config/woocommerce.php', 'woocommerce'
+            __DIR__ . '/config/woocommerce.php', 'woocommerce'
         );
 
-        $this->app->singleton('WooCommerceApi', function(){
-            return new WooCommerceApi(); 
+        $this->app->singleton('WooCommerceApi', function () {
+            return new WooCommerceApi();
         });
         $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WoocommerceApi');
     }

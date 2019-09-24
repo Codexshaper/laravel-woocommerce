@@ -4,19 +4,19 @@ namespace Codexshaper\WooCommerce\Traits;
 
 trait WooCommerceTrait
 {
-	/**
-	 * GET method.
-	 * Retrieve data
-	 *
-	 * @param string $endpoint API endpoint.
-	 * @param array $options
-	 *
-	 * @return array
-	 */
-	public function all($endpoint='', $options = [])
-	{
-	    return $this->client->get($endpoint, $options);
-	}
+    /**
+     * GET method.
+     * Retrieve data
+     *
+     * @param string $endpoint API endpoint.
+     * @param array $options
+     *
+     * @return array
+     */
+    public function all($endpoint = '', $options = [])
+    {
+        return $this->client->get($endpoint, $options);
+    }
     /**
      * GET method.
      * Retrieve Single data
@@ -26,7 +26,7 @@ trait WooCommerceTrait
      *
      * @return array
      */
-    public function find($endpoint='', $options = [])
+    public function find($endpoint = '', $options = [])
     {
         return $this->client->get($endpoint, $options);
     }
@@ -103,7 +103,7 @@ trait WooCommerceTrait
      */
     public function countResults()
     {
-        return (int)$this->getResponse()->getHeaders()['X-WP-Total'];
+        return (int) $this->getResponse()->getHeaders()['X-WP-Total'];
     }
     /**
      * Count the total pages and return
@@ -112,7 +112,7 @@ trait WooCommerceTrait
      */
     public function countPages()
     {
-        return (int)$this->getResponse()->getHeaders()['X-WP-TotalPages'];
+        return (int) $this->getResponse()->getHeaders()['X-WP-TotalPages'];
     }
     /**
      * Return the previous page number
@@ -121,8 +121,8 @@ trait WooCommerceTrait
      */
     public function previous()
     {
-    	$currentPage = $this->current();
-        return ( --$currentPage > 1) ? $currentPage : null;
+        $currentPage = $this->current();
+        return (--$currentPage > 1) ? $currentPage : null;
     }
     /**
      * Return the next page number
@@ -131,7 +131,7 @@ trait WooCommerceTrait
      */
     public function next()
     {
-    	$currentPage = $this->current();
-        return ( ++$currentPage < $this->countPages()) ? $currentPage : null;
+        $currentPage = $this->current();
+        return (++$currentPage < $this->countPages()) ? $currentPage : null;
     }
 }

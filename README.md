@@ -45,7 +45,11 @@ use Codexshaper\WooCommerce\Facades\Order;
 
 public function orders()
 {
-  return Order::all();
+  $orders = Order::all();
+  // Pass options as an array
+  $orders = Order::all(['status' => 'processing']);
+  // Call Custom query with WHERE clause
+  $orders = Order::where(['status' => 'processing'])->get();
 }
 
 public function order( Request $request )

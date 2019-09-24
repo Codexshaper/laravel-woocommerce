@@ -1,8 +1,9 @@
-<?php 
+<?php
 namespace Codexshaper\WooCommerce\Facades;
 
-use Illuminate\Support\Facades\Facade;
 use Codexshaper\WooCommerce\WooCommerceApi;
+use Illuminate\Support\Facades\Facade;
+
 class WooCommerce extends Facade
 {
     /**
