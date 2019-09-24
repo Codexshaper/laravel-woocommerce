@@ -3,9 +3,12 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Customer
 {
+    use QueryBuilderTrait;
+
     public function all($options = [])
     {
         return WooCommerce::all('customers', $options);

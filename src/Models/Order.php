@@ -3,11 +3,11 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Order
 {
-    protected $options = [];
-    protected $results = [];
+    use QueryBuilderTrait;
 
     public function all($options = [])
     {
@@ -16,7 +16,7 @@ class Order
 
     public function find($id, $options = [])
     {
-        return WooCommerce::find("orders/{$id}", $options);
+        return collect(WooCommerce::find("orders/{$id}", $options));
     }
 
     public function create($data)
@@ -85,35 +85,5 @@ class Order
     public function deleteRefund($order_id, $refund_id, $options = [])
     {
         return WooCommerce::delete("orders/{$order_id}/refunds/{$refund_id}", $options);
-    }
-
-    /* Custom Query */
-    public function where(...$parameters)
-    {
-        if (count($parameters) == 2) {
-            $this->options[$parameters[0]] = $parameters[1];
-        }
-
-        if (count($parameters) == 1) {
-
-            foreach ($parameters as $parameter) {
-
-                foreach ($parameter as $key => $value) {
-                    $this->options[$key] = $value;
-                }
-            }
-        }
-        return $this;
-    }
-
-    public function get()
-    {
-        return WooCommerce::all('orders', $this->options);
-    }
-
-    public function first()
-    {
-        $order = $this->get()[0];
-        return ['order' => $order];
     }
 }

@@ -3,9 +3,12 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Product
 {
+    use QueryBuilderTrait;
+
     public function all($options = [])
     {
         return WooCommerce::all('products', $options);
@@ -13,7 +16,7 @@ class Product
 
     public function find($id, $options = [])
     {
-        return WooCommerce::find("products/{$id}", $options);
+        return collect(WooCommerce::find("products/{$id}", $options));
     }
 
     public function create($data)
