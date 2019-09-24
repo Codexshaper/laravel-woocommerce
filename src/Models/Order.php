@@ -6,76 +6,114 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 class Order
 {
+    protected $options = [];
+    protected $results = [];
 
-    public function all()
+    public function all($options = [])
     {
-    	return WooCommerce::all('orders');
+        return WooCommerce::all('orders', $options);
     }
 
-    public function find($id)
+    public function find($id, $options = [])
     {
-    	return WooCommerce::find("orders/{$id}");
+        return WooCommerce::find("orders/{$id}", $options);
     }
 
-    public function create( $data ) {
-    	return WooCommerce::create('orders', $data);
+    public function create($data)
+    {
+        return WooCommerce::create('orders', $data);
     }
 
-    public function update( $id, $data ) {
-    	return WooCommerce::update("orders/{$id}", $data);
+    public function update($id, $data)
+    {
+        return WooCommerce::update("orders/{$id}", $data);
     }
 
-    public function delete( $id, $options=[] ) {
-    	return WooCommerce::delete("orders/{$id}", $options);
+    public function delete($id, $options = [])
+    {
+        return WooCommerce::delete("orders/{$id}", $options);
     }
 
-    public function batch( $data ) {
-    	return WooCommerce::create('orders/batch', $options);
+    public function batch($data)
+    {
+        return WooCommerce::create('orders/batch', $data);
     }
 
     /*
      * Note
      */
 
-    public function notes( $order_id )
+    public function notes($order_id, $options = [])
     {
-    	return WooCommerce::all("orders/{$order_id}/notes");
+        return WooCommerce::all("orders/{$order_id}/notes", $options);
     }
 
-    public function note( $order_id, $note_id )
+    public function note($order_id, $note_id)
     {
-    	return WooCommerce::create("orders/{$order_id}/notes/{$note_id}");
+        return WooCommerce::create("orders/{$order_id}/notes/{$note_id}");
     }
 
-    public function createNote( $order_id )
+    public function createNote($order_id)
     {
-    	return WooCommerce::create("orders/{$order_id}/notes");
+        return WooCommerce::create("orders/{$order_id}/notes");
     }
 
-    public function deleteNote( $order_id, $note_id, $options = [] ) {
-    	return WooCommerce::delete("orders/{$order_id}/notes/{$note_id}", $options);
+    public function deleteNote($order_id, $note_id, $options = [])
+    {
+        return WooCommerce::delete("orders/{$order_id}/notes/{$note_id}", $options);
     }
 
     /*
      * Refund
      */
 
-    public function refunds( $order_id )
+    public function refunds($order_id, $options = [])
     {
-    	return WooCommerce::all("orders/{$order_id}/refunds");
+        return WooCommerce::all("orders/{$order_id}/refunds", $options);
     }
 
-    public function refund( $order_id, $refund_id )
+    public function refund($order_id, $refund_id)
     {
-    	return WooCommerce::create("orders/{$order_id}/refunds/{$refund_id}");
+        return WooCommerce::create("orders/{$order_id}/refunds/{$refund_id}");
     }
 
-    public function createRefund( $order_id )
+    public function createRefund($order_id)
     {
-    	return WooCommerce::create("orders/{$order_id}/refunds");
+        return WooCommerce::create("orders/{$order_id}/refunds");
     }
 
-    public function deleteRefund( $order_id, $refund_id, $options = [] ) {
-    	return WooCommerce::delete("orders/{$order_id}/refunds/{$refund_id}", $options);
+    public function deleteRefund($order_id, $refund_id, $options = [])
+    {
+        return WooCommerce::delete("orders/{$order_id}/refunds/{$refund_id}", $options);
+    }
+
+    /* Custom Query */
+    public function where(...$parameters)
+    {
+        if (count($parameters) == 2) {
+            $this->options[$parameters[0]] = $parameters[1];
+        }
+
+        if (count($parameters) == 1) {
+
+            foreach ($parameters as $parameter) {
+
+                foreach ($parameter as $key => $value) {
+                    $this->options[$key] = $value;
+                }
+            }
+        }
+        return $this;
+    }
+
+    public function get()
+    {
+        return WooCommerce::all('orders', $this->options);
+    }
+
+    public function first()
+    {
+        $order = $this->get()[0];
+        return ['order' => $order];
     }
 }

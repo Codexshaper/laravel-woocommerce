@@ -6,29 +6,33 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 class Customer
 {
-    public function all()
+    public function all($options = [])
     {
-    	return WooCommerce::all('customers');
+        return WooCommerce::all('customers', $options);
     }
 
-    public function find($id)
+    public function find($id, $options = [])
     {
-    	return WooCommerce::find('customers/'.$id);
+        return WooCommerce::find("customers/{$id}", $options);
     }
 
-    public function create( $data ) {
-    	return WooCommerce::create('customers', $data);
+    public function create($data)
+    {
+        return WooCommerce::create('customers', $data);
     }
 
-    public function update( $id, $data ) {
-    	return WooCommerce::update('customers/'.$id, $data);
+    public function update($id, $data)
+    {
+        return WooCommerce::update("customers/{$id}", $data);
     }
 
-    public function delete( $id, $options=[] ) {
-    	return WooCommerce::delete('customers/'.$id, $options);
+    public function delete($id, $options = [])
+    {
+        return WooCommerce::delete("customers/{$id}", $options);
     }
 
-    public function batch( $data ) {
-    	return WooCommerce::create('customers/batch', $options);
+    public function batch($data)
+    {
+        return WooCommerce::create('customers/batch', $options);
     }
 }
