@@ -1,5 +1,5 @@
 {
-    "name": "codexshaper/woocommerce",
+    "name": "codexshaper/laravel-woocommerce",
     "description": "WooCommerce Rest API with Laravel",
     "type": "library",
     "require": {
