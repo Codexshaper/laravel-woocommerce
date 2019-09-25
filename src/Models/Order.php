@@ -9,6 +9,8 @@ class Order
 {
     use QueryBuilderTrait;
 
+    protected $endpoint = 'orders';
+
     public function all($options = [])
     {
         return WooCommerce::all('orders', $options);

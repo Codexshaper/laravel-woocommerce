@@ -11,6 +11,11 @@ class WooCommerceApi
 
     protected $client;
 
+    /**
+     * Build Woocommerce connection
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->client = new Client(

@@ -9,6 +9,8 @@ class Customer
 {
     use QueryBuilderTrait;
 
+    protected $endpoint = 'customers';
+
     public function all($options = [])
     {
         return WooCommerce::all('customers', $options);

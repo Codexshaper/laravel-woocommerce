@@ -6,22 +6,39 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 trait QueryBuilderTrait
 {
+    /**
+     * @var $options
+     */
+    protected $options = [];
 
-    protected $options;
-
-    /* Custom Query */
-
+    /**
+     * Retrieve data
+     *
+     * @return array
+     */
     public function get()
     {
-        return WooCommerce::all('products', $this->options);
+        return WooCommerce::all($this->endpoint, $this->options);
     }
 
+    /**
+     * Retrieve data
+     *
+     * @return object
+     */
     public function first()
     {
         return collect($this->get()[0]);
     }
 
-    public function options(array $parameters)
+    /**
+     * Set options for woocommerce request
+     *
+     * @param array $parameters
+     *
+     * @return object $this
+     */
+    public function options($parameters)
     {
         if (!is_array($parameters)) {
             throw new \Exception("Options must be an array", 1);
@@ -39,6 +56,13 @@ trait QueryBuilderTrait
         return $this;
     }
 
+    /**
+     * Join options for woocommerce request
+     *
+     * @param array $parameters
+     *
+     * @return object $this
+     */
     public function where(...$parameters)
     {
         if (count($parameters) == 2) {
@@ -46,9 +70,7 @@ trait QueryBuilderTrait
         }
 
         if (count($parameters) == 1) {
-
             foreach ($parameters as $parameter) {
-
                 foreach ($parameter as $key => $value) {
                     $this->options[$key] = $value;
                 }
@@ -57,6 +79,13 @@ trait QueryBuilderTrait
         return $this;
     }
 
+    /**
+     *
+     * @param string $name
+     * @param string $direction
+     *
+     * @return object $this
+     */
     public function orderBy($name, $direction = 'desc')
     {
         $this->options['orderby'] = $name;

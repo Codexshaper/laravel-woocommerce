@@ -17,6 +17,7 @@ trait WooCommerceTrait
     {
         return $this->client->get($endpoint, $options);
     }
+
     /**
      * GET method.
      * Retrieve Single data
@@ -30,6 +31,7 @@ trait WooCommerceTrait
     {
         return $this->client->get($endpoint, $options);
     }
+
     /**
      * POST method.
      * Insert data
@@ -43,6 +45,7 @@ trait WooCommerceTrait
     {
         return $this->client->post($endpoint, $data);
     }
+
     /**
      * PUT method.
      * Update data
@@ -56,6 +59,7 @@ trait WooCommerceTrait
     {
         return $this->client->put($endpoint, $data);
     }
+
     /**
      * DELETE method.
      * Remove data
@@ -69,6 +73,7 @@ trait WooCommerceTrait
     {
         return $this->client->delete($endpoint, $options);
     }
+
     /**
      * Return the last request header
      *
@@ -78,6 +83,7 @@ trait WooCommerceTrait
     {
         return $this->client->http->getRequest();
     }
+
     /**
      * Return the http response headers from last request
      *
@@ -87,6 +93,7 @@ trait WooCommerceTrait
     {
         return $this->client->http->getResponse();
     }
+
     /**
      * Return the current page number
      *
@@ -96,6 +103,7 @@ trait WooCommerceTrait
     {
         return !empty($this->getRequest()->getParameters()['page']) ? $this->getRequest()->getParameters()['page'] : 1;
     }
+
     /**
      * Count the total results and return it
      *
@@ -105,6 +113,7 @@ trait WooCommerceTrait
     {
         return (int) $this->getResponse()->getHeaders()['X-WP-Total'];
     }
+
     /**
      * Count the total pages and return
      *
@@ -114,6 +123,7 @@ trait WooCommerceTrait
     {
         return (int) $this->getResponse()->getHeaders()['X-WP-TotalPages'];
     }
+
     /**
      * Return the previous page number
      *
@@ -124,6 +134,7 @@ trait WooCommerceTrait
         $currentPage = $this->current();
         return (--$currentPage > 1) ? $currentPage : null;
     }
+
     /**
      * Return the next page number
      *
