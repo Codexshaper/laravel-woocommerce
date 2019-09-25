@@ -18,7 +18,27 @@ trait QueryBuilderTrait
      */
     public function get()
     {
-        return WooCommerce::all($this->endpoint, $this->options);
+        $orders = WooCommerce::all($this->endpoint, $this->options);
+
+        if (empty($this->where)) {
+            return $orders;
+        }
+        $filteredOrders = [];
+        foreach ($this->where as $key => $where) {
+
+            foreach ($orders as $order) {
+                $name      = $where['name'];
+                $name      = $order->$name;
+                $operator  = ($where['operator'] == '=') ? $where['operator'] . "=" : $where['operator'];
+                $value     = $where['value'];
+                $condition = "'$name' $operator '$value'";
+                if (eval("return $condition;")) {
+                    $filteredOrders[] = $order;
+                }
+            }
+        }
+
+        return $filteredOrders;
     }
 
     /**
@@ -65,6 +85,15 @@ trait QueryBuilderTrait
      */
     public function where(...$parameters)
     {
+        if (count($parameters) == 3) {
+            $where = [
+                'name'     => $parameters[0],
+                'operator' => $parameters[1],
+                'value'    => $parameters[2],
+            ];
+            $this->where[] = $where;
+        }
+
         if (count($parameters) == 2) {
             $this->options[$parameters[0]] = $parameters[1];
         }
