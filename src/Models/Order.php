@@ -11,36 +11,6 @@ class Order
 
     protected $endpoint = 'orders';
 
-    public function all($options = [])
-    {
-        return WooCommerce::all('orders', $options);
-    }
-
-    public function find($id, $options = [])
-    {
-        return collect(WooCommerce::find("orders/{$id}", $options));
-    }
-
-    public function create($data)
-    {
-        return WooCommerce::create('orders', $data);
-    }
-
-    public function update($id, $data)
-    {
-        return WooCommerce::update("orders/{$id}", $data);
-    }
-
-    public function delete($id, $options = [])
-    {
-        return WooCommerce::delete("orders/{$id}", $options);
-    }
-
-    public function batch($data)
-    {
-        return WooCommerce::create('orders/batch', $data);
-    }
-
     /*
      * Note
      */

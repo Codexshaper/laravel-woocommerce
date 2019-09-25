@@ -12,6 +12,58 @@ trait QueryBuilderTrait
     protected $options = [];
 
     /**
+     * Retrieve all products
+     *
+     * @param array $options
+     *
+     * @return array
+     */
+    public function all($options = [])
+    {
+        return WooCommerce::all($this->endpoint, $options);
+    }
+
+    /**
+     * Retrieve single product
+     *
+     * @param integer $id
+     * @param array $options
+     *
+     * @return object
+     */
+    public function find($id, $options = [])
+    {
+        return collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
+    }
+
+    /**
+     * Create new product
+     *
+     * @param array $data
+     *
+     * @return object
+     */
+    public function create($data)
+    {
+        return WooCommerce::create($this->endpoint, $data);
+    }
+
+    public function update($id, $data)
+    {
+        return WooCommerce::update("{$this->endpoint}/{$id}", $data);
+    }
+
+    public function delete($id, $options = [])
+    {
+        return WooCommerce::delete("{$this->endpoint}/{$id}", $options);
+    }
+
+    public function batch($data)
+    {
+        return WooCommerce::create('{$this->endpoint}/batch', $options);
+    }
+
+    /**
      * Retrieve data
      *
      * @return array

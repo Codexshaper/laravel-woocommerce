@@ -4,7 +4,7 @@ WooCommerce Rest API with Laravel
 #Install
 
 ```
-composer require codexshaper/laravel-woocommerce
+composer require codexshaper/woocommerce
 ```
 
 #Publish config file
