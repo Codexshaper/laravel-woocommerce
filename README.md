@@ -75,6 +75,23 @@ public function customer( Request $request )
 
 ```
 
+# Example for Eloquent Style for Product, Customer and Order
+
+```
+// Where passing multiple parameters
+$orders = Order::where('status', 'publishing')->get();
+$orders = Order::where('total', '>=', 10)->get();
+// Where passing an array
+$orders = Order::where(['status' => 'processing']);
+$orders = Order::where(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc'])->get();
+// Order with where
+$orders = Order::where('total', '>=', 10)->orderBy('id', 'asc')->get();
+// Set Options
+$orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc'])->get();
+// You can pass options passing parameters when call `all` method
+$orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
+```
+
 # You can also use ```WooCommerce``` Facade
 
 ```
