@@ -1,5 +1,5 @@
-# laravel-woocommerce
-WooCommerce Rest API with Laravel
+# Laravel Woocommerce
+WooCommerce Rest API for Laravel. You can Get, Create, Update and Delete your woocommerce product using this package easily.
 
 #Install
 
