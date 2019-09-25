@@ -92,7 +92,7 @@ $orders = Order::where('total', '>=', 10)->orderBy('id', 'asc')->get();
 // Set Options
 $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc'])->get();
 
-// You can pass options passing parameters when call `all` method
+// You can set options by passing an array when call `all` method
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
 ```
 #Product Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#products
