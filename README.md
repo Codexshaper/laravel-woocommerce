@@ -96,7 +96,9 @@ $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' =
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
 ```
 #Product Option: https://woocommerce.github.io/woocommerce-rest-api-docs/#products
+
 #Customer Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#customers
+
 #Order Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#orders
 
 # You can also use ```WooCommerce``` Facade
