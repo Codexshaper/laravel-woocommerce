@@ -152,14 +152,61 @@ $product = Product::update($product_id, $data);
 #Delete a Product
 
 ```
-$product_id = 170;
+$product_id = 40;
 
 $options = ['force' => true]; // Set force option true for delete permanently. Default value false
 
 $product = Product::delete($product_id, $options);
 ```
 
-#Example for Order
+# Example for Order
+
+#Create Order
+
+```
+$data = [
+    'payment_method'       => 'bacs',
+    'payment_method_title' => 'Direct Bank Transfer',
+    'set_paid'             => true,
+    'billing'              => [
+        'first_name' => 'John',
+        'last_name'  => 'Doe',
+        'address_1'  => '969 Market',
+        'address_2'  => '',
+        'city'       => 'San Francisco',
+        'state'      => 'CA',
+        'postcode'   => '94103',
+        'country'    => 'US',
+        'email'      => 'john.doe@example.com',
+        'phone'      => '(555) 555-5555',
+    ],
+    'shipping'             => [
+        'first_name' => 'John',
+        'last_name'  => 'Doe',
+        'address_1'  => '969 Market',
+        'address_2'  => '',
+        'city'       => 'San Francisco',
+        'state'      => 'CA',
+        'postcode'   => '94103',
+        'country'    => 'US',
+    ],
+    'line_items'           => [
+        [
+            'product_id' => 40,
+            'quantity'   => 2,
+        ],
+        [
+            'product_id'   => 127,
+            'variation_id' => 23,
+            'quantity'     => 1,
+        ],
+    ],
+];
+
+$order = Order::create($data);
+```
+
+#Retrieve Order(s)
 
 ```
 use Codexshaper\WooCommerce\Facades\Order;
@@ -175,7 +222,27 @@ public function order( Request $request )
 }
 ```
 
-#Example for Customer
+#Update Order
+
+```
+$order_id = 173;
+$data     = [
+    'status' => 'completed',
+];
+
+$order = Order::update($order_id, $data);
+```
+
+#Delete an order
+
+```
+$order_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$order = Order::delete($order_id, $options);
+```
+
+# Example for Customer
 
 ```
 use Codexshaper\WooCommerce\Facades\Customer;
