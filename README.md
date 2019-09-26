@@ -22,8 +22,9 @@ WOOCOMMERCE_CONSUMER_SECRET=API_CONSUMER_SECRET
 ```
 #Do you need any help to create your own API credentials? Read the officials Doc https://docs.woocommerce.com/document/woocommerce-rest-api/
 
-#Example for Product
+# Example for Product
 
+#Retrieve Product(s)
 ```
 use Codexshaper\WooCommerce\Facades\Product;
 
@@ -37,7 +38,109 @@ public function product( Request $request )
   $product = Product::find($request->id);
 }
 ```
+#Create new Product
+```
+// For Simple Product
+$data = [
+    'name'              => 'Simple Product', // Product Name or Title
+    'type'              => 'simple', // Product type simple|variable
+    'regular_price'     => '100', // Regular Price
+    'sale_price'        => '', // Price after offer
+    'description'       => 'Product Description', // Product Long Description
+    'short_description' => 'Product Short Description', // Product Short Description
+    // Set Categories as an array
+    'categories'        => [
+        [
+            'id' => 1,
+        ],
+        [
+            'id' => 3,
+        ],
+    ],
+    // Set thumnail images as an array
+    'images'            => [
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg',
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg',
+        ],
+    ],
+];
 
+// For Variable Product
+$data = [
+            'name'               => 'Variable Product', // Product Name pr Title
+            'type'               => 'variable', // Product Type simple|variable
+            'description'        => 'Product Description', // Product Long Description
+            'short_description'  => 'Product Summery', // Product Short Description
+            // Product Categories
+            'categories'         => [
+                [
+                    'id' => 9,
+                ],
+                [
+                    'id' => 14,
+                ],
+            ],
+            // Product images
+            'images'             => [
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg',
+                ],
+            ],
+            // Product Attributes
+            'attributes'         => [
+                [
+                    'id'        => 6,
+                    'position'  => 0,
+                    'visible'   => false,
+                    'variation' => true,
+                    'options'   => [
+                        'Black',
+                        'Green',
+                    ],
+                ],
+                [
+                    'name'      => 'Size',
+                    'position'  => 0,
+                    'visible'   => true,
+                    'variation' => true,
+                    'options'   => [
+                        'S',
+                        'M',
+                    ],
+                ],
+            ],
+            // Set Default attributes
+            'default_attributes' => [
+                [
+                    'id'     => 6,
+                    'option' => 'Black',
+                ],
+                [
+                    'name'   => 'Size',
+                    'option' => 'S',
+                ],
+            ],
+        ];
+
+
+$product = Product::create($data);
+```
+#Update existing Product
+```
+
+```
 #Example for Order
 
 ```
