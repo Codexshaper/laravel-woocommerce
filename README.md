@@ -138,9 +138,27 @@ $data = [
 $product = Product::create($data);
 ```
 #Update existing Product
-```
 
 ```
+$product_id = 40;
+$data       = [
+    'regular_price' => '50',
+    'sale_price'    => '25', // 50% off
+];
+
+$product = Product::update($product_id, $data);
+```
+
+#Delete a Product
+
+```
+$product_id = 170;
+
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$product = Product::delete($product_id, $options);
+```
+
 #Example for Order
 
 ```
