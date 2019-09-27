@@ -134,8 +134,38 @@ $data = [
             ],
         ];
 
-
+// Create a product using create() method
 $product = Product::create($data);
+
+// Create a product using save() method
+$categories = [
+    [
+        'id' => 1,
+    ],
+    [
+        'id' => 3,
+    ],
+];
+
+$images = [
+    [
+        'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg',
+    ],
+    [
+        'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg',
+    ],
+];
+
+$product                    = new Product;
+$product->name              = 'Product Eloquent 2';
+$product->type              = 'simple';
+$product->regular_price     = '100';
+$product->sale_price        = '50';
+$product->description       = 'Product Description';
+$product->short_description = 'Product Short Description';
+$product->categories        = $categories;
+$product->images            = $images;
+$product->save();
 ```
 #Update existing Product
 
