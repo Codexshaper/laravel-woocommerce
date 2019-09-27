@@ -372,7 +372,7 @@ $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' =
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
 
 // Data with pagination
-$products = Product::paginate(25, 1); // first parameter means how much you want to display per_page, second parameter current page
+$products = Product::paginate(25, 1); // first parameter means how much you want to display per_page, second parameter current page. Default value 1
 Or
 $products = (new Product)->paginate(25, 5); // first parameter means how much data you want to display per_page, second parameter current page
 ```
