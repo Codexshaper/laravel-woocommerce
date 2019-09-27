@@ -95,16 +95,6 @@ trait WooCommerceTrait
     }
 
     /**
-     * Return the current page number
-     *
-     * @return int
-     */
-    public function current()
-    {
-        return !empty($this->getRequest()->getParameters()['page']) ? $this->getRequest()->getParameters()['page'] : 1;
-    }
-
-    /**
      * Count the total results and return it
      *
      * @return int
@@ -125,6 +115,16 @@ trait WooCommerceTrait
     }
 
     /**
+     * Return the current page number
+     *
+     * @return int
+     */
+    public function current()
+    {
+        return !empty($this->getRequest()->getParameters()['page']) ? $this->getRequest()->getParameters()['page'] : 1;
+    }
+
+    /**
      * Return the previous page number
      *
      * @return int|null
@@ -132,7 +132,7 @@ trait WooCommerceTrait
     public function previous()
     {
         $currentPage = $this->current();
-        return (--$currentPage > 1) ? $currentPage : null;
+        return ($currentPage-- > 1) ? $currentPage : null;
     }
 
     /**
@@ -143,6 +143,6 @@ trait WooCommerceTrait
     public function next()
     {
         $currentPage = $this->current();
-        return (++$currentPage < $this->countPages()) ? $currentPage : null;
+        return ($currentPage++ < $this->countPages()) ? $currentPage : null;
     }
 }

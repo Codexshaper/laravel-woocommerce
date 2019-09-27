@@ -9,6 +9,9 @@ class WooCommerceApi
 {
     use WooCommerceTrait;
 
+    /**
+     *@var \Automattic\WooCommerce\Client
+     */
     protected $client;
 
     /**

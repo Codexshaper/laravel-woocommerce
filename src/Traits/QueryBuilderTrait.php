@@ -10,55 +10,80 @@ trait QueryBuilderTrait
      * @var $options
      */
     protected $options = [];
+    /**
+     * @var $options
+     */
+    protected $where = [];
+    /**
+     * @var $results
+     */
+    protected $properties = [];
 
     /**
-     * Retrieve all products
+     * Retrieve all Items
      *
      * @param array $options
      *
      * @return array
      */
-    public function all($options = [])
+    protected function all($options = [])
     {
         return WooCommerce::all($this->endpoint, $options);
     }
 
     /**
-     * Retrieve single product
+     * Retrieve single Item
      *
      * @param integer $id
      * @param array $options
      *
      * @return object
      */
-    public function find($id, $options = [])
+    protected function find($id, $options = [])
     {
-        return collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
+        $result = collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
+        return $this;
     }
 
     /**
-     * Create new product
+     * Create new Item
      *
      * @param array $data
      *
      * @return object
      */
-    public function create($data)
+    protected function create($data)
     {
         return WooCommerce::create($this->endpoint, $data);
     }
 
-    public function update($id, $data)
+    /**
+     * Update Existing Item
+     *
+     * @param integer $id
+     * @param array $data
+     *
+     * @return object
+     */
+    protected function update($id, $data)
     {
         return WooCommerce::update("{$this->endpoint}/{$id}", $data);
     }
 
-    public function delete($id, $options = [])
+    /**
+     * Destroy Item
+     *
+     * @param integer $id
+     * @param array $options
+     *
+     * @return object
+     */
+    protected function delete($id, $options = [])
     {
         return WooCommerce::delete("{$this->endpoint}/{$id}", $options);
     }
 
-    public function batch($data)
+    protected function batch($data)
     {
         return WooCommerce::create('{$this->endpoint}/batch', $options);
     }
@@ -68,29 +93,29 @@ trait QueryBuilderTrait
      *
      * @return array
      */
-    public function get()
+    protected function get()
     {
-        $orders = WooCommerce::all($this->endpoint, $this->options);
+        $results = WooCommerce::all($this->endpoint, $this->options);
 
         if (empty($this->where)) {
-            return $orders;
+            return $results;
         }
-        $filteredOrders = [];
+        $filteredResults = [];
         foreach ($this->where as $key => $where) {
 
-            foreach ($orders as $order) {
+            foreach ($results as $result) {
                 $name      = $where['name'];
-                $name      = $order->$name;
+                $name      = $result->$name;
                 $operator  = ($where['operator'] == '=') ? $where['operator'] . "=" : $where['operator'];
                 $value     = $where['value'];
                 $condition = "'$name' $operator '$value'";
                 if (eval("return $condition;")) {
-                    $filteredOrders[] = $order;
+                    $filteredResults[] = $result;
                 }
             }
         }
 
-        return $filteredOrders;
+        return $filteredResults;
     }
 
     /**
@@ -98,7 +123,7 @@ trait QueryBuilderTrait
      *
      * @return object
      */
-    public function first()
+    protected function first()
     {
         return collect($this->get()[0]);
     }
@@ -110,7 +135,7 @@ trait QueryBuilderTrait
      *
      * @return object $this
      */
-    public function options($parameters)
+    protected function options($parameters)
     {
         if (!is_array($parameters)) {
             throw new \Exception("Options must be an array", 1);
@@ -135,7 +160,7 @@ trait QueryBuilderTrait
      *
      * @return object $this
      */
-    public function where(...$parameters)
+    protected function where(...$parameters)
     {
         if (count($parameters) == 3) {
             $where = [
@@ -167,11 +192,64 @@ trait QueryBuilderTrait
      *
      * @return object $this
      */
-    public function orderBy($name, $direction = 'desc')
+    protected function orderBy($name, $direction = 'desc')
     {
         $this->options['orderby'] = $name;
         $this->options['order']   = $direction;
 
         return $this;
+    }
+
+    /**
+     *
+     * @param integer $per_page
+     * @param integer $current_page
+     *
+     * @return array
+     */
+    protected function paginate($per_page, $current_page = 1)
+    {
+        $this->options['per_page'] = (int) $per_page;
+
+        if ($current_page > 0) {
+            $this->options['page'] = (int) $current_page;
+        }
+
+        $results      = $this->get();
+        $totalResults = WooCommerce::countResults();
+        $totalPages   = WooCommerce::countPages();
+        $currentPage  = WooCommerce::current();
+        $previousPage = WooCommerce::previous();
+        $nextPage     = WooCommerce::next();
+
+        $pagination = [
+            'total_results' => $totalResults,
+            'total_pages'   => $totalPages,
+            'current_page'  => $currentPage,
+            'previous_page' => $previousPage,
+            'next_page'     => $nextPage,
+            'first_page'    => 1,
+            'last_page'     => $totalResults,
+        ];
+
+        $results['pagination'] = $pagination;
+
+        return $results;
+    }
+
+    /**
+     *
+     * @return array
+     */
+    public function save()
+    {
+        $this->results = WooCommerce::create($this->endpoint, $this->properties);
+
+        return $this->results;
+    }
+
+    public function hello()
+    {
+        return "Called";
     }
 }

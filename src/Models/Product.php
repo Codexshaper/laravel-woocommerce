@@ -5,7 +5,7 @@ namespace Codexshaper\WooCommerce\Models;
 use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Product
+class Product extends BaseModel
 {
     use QueryBuilderTrait;
 
