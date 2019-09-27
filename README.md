@@ -370,6 +370,11 @@ $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' =
 
 // You can set options by passing an array when call `all` method
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
+
+// Data with pagination
+$products = Product::paginate(25, 1); // first parameter means how much you want to display per_page, second parameter current page
+Or
+$products = (new Product)->paginate(25, 5); // first parameter means how much data you want to display per_page, second parameter current page
 ```
 #Product Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#products
 
