@@ -41,8 +41,7 @@ trait QueryBuilderTrait
      */
     protected function find($id, $options = [])
     {
-        $result = collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
-        return $this;
+        return collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
     }
 
     /**
