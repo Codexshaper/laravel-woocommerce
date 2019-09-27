@@ -416,8 +416,8 @@ public function customer( Request $request )
 # Use Facade Alias
 
 ```
-use WooCommerce instead of Codexshaper\WooCommerce\Facades\WooCommerce;
-use Customer instead of Codexshaper\WooCommerce\Facades\Customer;
-use Order instead of Codexshaper\WooCommerce\Facades\Order;
-use Product instead of Codexshaper\WooCommerce\Facades\Product;
+use WooCommerce // same as ```use Codexshaper\WooCommerce\Facades\WooCommerce;```
+use Customer // same as ```use Codexshaper\WooCommerce\Models\Customer;```
+use Order // same as ```use Codexshaper\WooCommerce\Models\Order;```
+use Product // same as ```Codexshaper\WooCommerce\Models\Product;```
 ```
