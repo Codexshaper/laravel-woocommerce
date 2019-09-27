@@ -70,69 +70,69 @@ $data = [
 
 // For Variable Product
 $data = [
-            'name'               => 'Variable Product', // Product Name pr Title
-            'type'               => 'variable', // Product Type simple|variable
-            'description'        => 'Product Description', // Product Long Description
-            'short_description'  => 'Product Summery', // Product Short Description
-            // Product Categories
-            'categories'         => [
-                [
-                    'id' => 9,
-                ],
-                [
-                    'id' => 14,
-                ],
+    'name'               => 'Variable Product', // Product Name pr Title
+    'type'               => 'variable', // Product Type simple|variable
+    'description'        => 'Product Description', // Product Long Description
+    'short_description'  => 'Product Summery', // Product Short Description
+    // Product Categories
+    'categories'         => [
+        [
+            'id' => 9,
+        ],
+        [
+            'id' => 14,
+        ],
+    ],
+    // Product images
+    'images'             => [
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg',
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg',
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg',
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg',
+        ],
+    ],
+    // Product Attributes
+    'attributes'         => [
+        [
+            'id'        => 6,
+            'position'  => 0,
+            'visible'   => false,
+            'variation' => true,
+            'options'   => [
+                'Black',
+                'Green',
             ],
-            // Product images
-            'images'             => [
-                [
-                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg',
-                ],
-                [
-                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg',
-                ],
-                [
-                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg',
-                ],
-                [
-                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg',
-                ],
+        ],
+        [
+            'name'      => 'Size',
+            'position'  => 0,
+            'visible'   => true,
+            'variation' => true,
+            'options'   => [
+                'S',
+                'M',
             ],
-            // Product Attributes
-            'attributes'         => [
-                [
-                    'id'        => 6,
-                    'position'  => 0,
-                    'visible'   => false,
-                    'variation' => true,
-                    'options'   => [
-                        'Black',
-                        'Green',
-                    ],
-                ],
-                [
-                    'name'      => 'Size',
-                    'position'  => 0,
-                    'visible'   => true,
-                    'variation' => true,
-                    'options'   => [
-                        'S',
-                        'M',
-                    ],
-                ],
-            ],
-            // Set Default attributes
-            'default_attributes' => [
-                [
-                    'id'     => 6,
-                    'option' => 'Black',
-                ],
-                [
-                    'name'   => 'Size',
-                    'option' => 'S',
-                ],
-            ],
-        ];
+        ],
+    ],
+    // Set Default attributes
+    'default_attributes' => [
+        [
+            'id'     => 6,
+            'option' => 'Black',
+        ],
+        [
+            'name'   => 'Size',
+            'option' => 'S',
+        ],
+    ],
+];
 
 // Create a product using create() method
 $product = Product::create($data);
