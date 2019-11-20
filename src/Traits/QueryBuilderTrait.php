@@ -246,9 +246,4 @@ trait QueryBuilderTrait
 
         return $this->results;
     }
-
-    public function hello()
-    {
-        return "Called";
-    }
 }

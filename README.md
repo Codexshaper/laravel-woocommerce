@@ -70,69 +70,69 @@ $data = [
 
 // For Variable Product
 $data = [
-    'name'               => 'Variable Product', // Product Name pr Title
-    'type'               => 'variable', // Product Type simple|variable
-    'description'        => 'Product Description', // Product Long Description
-    'short_description'  => 'Product Summery', // Product Short Description
-    // Product Categories
-    'categories'         => [
-        [
-            'id' => 9,
-        ],
-        [
-            'id' => 14,
-        ],
-    ],
-    // Product images
-    'images'             => [
-        [
-            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg',
-        ],
-        [
-            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg',
-        ],
-        [
-            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg',
-        ],
-        [
-            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg',
-        ],
-    ],
-    // Product Attributes
-    'attributes'         => [
-        [
-            'id'        => 6,
-            'position'  => 0,
-            'visible'   => false,
-            'variation' => true,
-            'options'   => [
-                'Black',
-                'Green',
+            'name'               => 'Variable Product', // Product Name pr Title
+            'type'               => 'variable', // Product Type simple|variable
+            'description'        => 'Product Description', // Product Long Description
+            'short_description'  => 'Product Summery', // Product Short Description
+            // Product Categories
+            'categories'         => [
+                [
+                    'id' => 9,
+                ],
+                [
+                    'id' => 14,
+                ],
             ],
-        ],
-        [
-            'name'      => 'Size',
-            'position'  => 0,
-            'visible'   => true,
-            'variation' => true,
-            'options'   => [
-                'S',
-                'M',
+            // Product images
+            'images'             => [
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg',
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg',
+                ],
             ],
-        ],
-    ],
-    // Set Default attributes
-    'default_attributes' => [
-        [
-            'id'     => 6,
-            'option' => 'Black',
-        ],
-        [
-            'name'   => 'Size',
-            'option' => 'S',
-        ],
-    ],
-];
+            // Product Attributes
+            'attributes'         => [
+                [
+                    'id'        => 6,
+                    'position'  => 0,
+                    'visible'   => false,
+                    'variation' => true,
+                    'options'   => [
+                        'Black',
+                        'Green',
+                    ],
+                ],
+                [
+                    'name'      => 'Size',
+                    'position'  => 0,
+                    'visible'   => true,
+                    'variation' => true,
+                    'options'   => [
+                        'S',
+                        'M',
+                    ],
+                ],
+            ],
+            // Set Default attributes
+            'default_attributes' => [
+                [
+                    'id'     => 6,
+                    'option' => 'Black',
+                ],
+                [
+                    'name'   => 'Size',
+                    'option' => 'S',
+                ],
+            ],
+        ];
 
 // Create a product using create() method
 $product = Product::create($data);
@@ -370,11 +370,6 @@ $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' =
 
 // You can set options by passing an array when call `all` method
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
-
-// Data with pagination
-$products = Product::paginate(25, 1); // first parameter means how much you want to display per_page, second parameter current page. Default value 1
-Or
-$products = (new Product)->paginate(25, 5); // first parameter means how much data you want to display per_page, second parameter current page
 ```
 #Product Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#products
 

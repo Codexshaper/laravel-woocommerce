@@ -15,22 +15,22 @@ class Order extends BaseModel
      * Note
      */
 
-    public function notes($order_id, $options = [])
+    protected function notes($order_id, $options = [])
     {
         return WooCommerce::all("orders/{$order_id}/notes", $options);
     }
 
-    public function note($order_id, $note_id)
+    protected function note($order_id, $note_id)
     {
-        return WooCommerce::create("orders/{$order_id}/notes/{$note_id}");
+        return WooCommerce::find("orders/{$order_id}/notes/{$note_id}");
     }
 
-    public function createNote($order_id)
+    protected function createNote($order_id, $data = [])
     {
-        return WooCommerce::create("orders/{$order_id}/notes");
+        return WooCommerce::create("orders/{$order_id}/notes", $data);
     }
 
-    public function deleteNote($order_id, $note_id, $options = [])
+    protected function deleteNote($order_id, $note_id, $options = [])
     {
         return WooCommerce::delete("orders/{$order_id}/notes/{$note_id}", $options);
     }
@@ -39,22 +39,22 @@ class Order extends BaseModel
      * Refund
      */
 
-    public function refunds($order_id, $options = [])
+    protected function refunds($order_id, $options = [])
     {
         return WooCommerce::all("orders/{$order_id}/refunds", $options);
     }
 
-    public function refund($order_id, $refund_id)
+    protected function refund($order_id, $refund_id)
     {
-        return WooCommerce::create("orders/{$order_id}/refunds/{$refund_id}");
+        return WooCommerce::find("orders/{$order_id}/refunds/{$refund_id}");
     }
 
-    public function createRefund($order_id)
+    protected function createRefund($order_id, $data = [])
     {
-        return WooCommerce::create("orders/{$order_id}/refunds");
+        return WooCommerce::create("orders/{$order_id}/refunds", $data);
     }
 
-    public function deleteRefund($order_id, $refund_id, $options = [])
+    protected function deleteRefund($order_id, $refund_id, $options = [])
     {
         return WooCommerce::delete("orders/{$order_id}/refunds/{$refund_id}", $options);
     }
