@@ -272,6 +272,80 @@ $options = ['force' => true]; // Set force option true for delete permanently. D
 $order = Order::delete($order_id, $options);
 ```
 
+#Create a note for a specific order
+
+```
+$order_id = 172;
+$data = [
+    'note' => 'Add your note',
+];
+$createNote = Order::createNote($order_id, $data);
+```
+
+#Get a note for sepcific order
+
+```
+$order_id = 172;
+$note_id  = 67;
+
+$note = Order::note($order_id, $note_id);
+```
+
+#Get all notes for sepcific order
+
+```
+$order_id = 172;
+$options = [];
+$notes = Order::notes($order_id, $options);
+```
+
+#Delete a note for sepcific order
+
+```
+$order_id = 172;
+$note_id  = 67;
+$options = [];
+
+$note = Order::deleteNote($order_id, $note_id, $options);
+```
+
+#Create a Refund for a specific order
+
+```
+$order_id = 172;
+$data = [
+    'amount' => '10'
+];
+$createNote = Order::createRefund($order_id, $data);
+```
+
+#Get Refund for sepcific order
+
+```
+$order_id = 172;
+$refund_id  = 117;
+
+$refund = Order::refund($order_id, $note_id);
+```
+
+#Get all Refunds for sepcific order
+
+```
+$order_id = 172;
+$options = [];
+$refunds = Order::refunds($order_id, $options);
+```
+
+#Delete Refund for sepcific order
+
+```
+$order_id = 172;
+$refund_id  = 67;
+$options = [];
+
+$refund = Order::deleteRefund($order_id, $refund_id, $options);
+```
+
 # Example for Customer
 
 #Create Customer
