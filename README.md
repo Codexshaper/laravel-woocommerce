@@ -325,7 +325,7 @@ $createNote = Order::createRefund($order_id, $data);
 $order_id = 172;
 $refund_id  = 117;
 
-$refund = Order::refund($order_id, $note_id);
+$refund = Order::refund($order_id, $refund_id);
 ```
 
 #Get all Refunds for sepcific order
