@@ -1,6 +1,15 @@
 {
     "name": "codexshaper/laravel-woocommerce",
     "description": "WooCommerce Rest API with Laravel",
+    "keywords": [
+        "woocommerce",
+        "laravel",
+        "laravel-woocommerce",
+        "woocommerce-api",
+        "woocommerce-rest-api",
+        "laravel-woocommerce-api",
+        "laravel-woocommerce-rest-api"
+    ],
     "type": "library",
     "require": {
         "automattic/woocommerce": "^3.0"
