@@ -1,5 +1,5 @@
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/Codexshaper/laravel-database-manager.svg?style=flat-square)](https://packagist.org/packages/Codexshaper/laravel-database-manager)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://packagist.org/packages/Codexshaper/laravel-woocommerce)
 
 # Laravel Woocommerce
 WooCommerce Rest API for Laravel. You can Get, Create, Update and Delete your woocommerce product using this package easily.
