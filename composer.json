@@ -33,10 +33,24 @@
                 "Codexshaper\\WooCommerce\\WooCommerceServiceProvider"
             ],
             "aliases": {
-                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
-                "Product": "Codexshaper\\WooCommerce\\Models\\Product",
+                "Attribute": "Codexshaper\\WooCommerce\\Models\\Attribute",
+                "Category": "Codexshaper\\WooCommerce\\Models\\Category",
+                "Coupon": "Codexshaper\\WooCommerce\\Models\\Coupon",
+                "Customer": "Codexshaper\\WooCommerce\\Models\\Customer",
                 "Order": "Codexshaper\\WooCommerce\\Models\\Order",
-                "Customer": "Codexshaper\\WooCommerce\\Models\\Customer"
+                "Product": "Codexshaper\\WooCommerce\\Models\\Product",
+                "Refund": "Codexshaper\\WooCommerce\\Models\\Refund",
+                "Report": "Codexshaper\\WooCommerce\\Models\\Report",
+                "Review": "Codexshaper\\WooCommerce\\Models\\Review",
+                "Setting": "Codexshaper\\WooCommerce\\Models\\Setting",
+                "ShippingMethod": "Codexshaper\\WooCommerce\\Models\\ShippingMethod",
+                "ShippingZone": "Codexshaper\\WooCommerce\\Models\\ShippingZone",
+                "System": "Codexshaper\\WooCommerce\\Models\\System",
+                "Tag": "Codexshaper\\WooCommerce\\Models\\Tag",
+                "Tax": "Codexshaper\\WooCommerce\\Models\\Tax",
+                "TaxClass": "Codexshaper\\WooCommerce\\Models\\TaxClass",
+                "Variation": "Codexshaper\\WooCommerce\\Models\\Variation",
+                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
             }
         }
     }

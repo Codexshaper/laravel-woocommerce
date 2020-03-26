@@ -20,12 +20,7 @@ WOOCOMMERCE_STORE_URL=YOUR_WEBSITE_URL
 WOOCOMMERCE_CONSUMER_KEY=API_CONSUMER_KEY
 WOOCOMMERCE_CONSUMER_SECRET=API_CONSUMER_SECRET
 ```
-### Do you need any help to create your own API credentials? Read the [WooCommerce Officials Doc](https://docs.woocommerce.com/document/woocommerce-rest-api/)
-### If you face any error after change the .env file in `production` then run below command
-
-`php artisan config:cache`
-
-For more details about config cache follow the [Laravel Official Doc](https://laravel.com/docs/6.x/configuration#configuration-caching)
+#Do you need any help to create your own API credentials? Read the officials Doc https://docs.woocommerce.com/document/woocommerce-rest-api/
 
 # Example for Product
 

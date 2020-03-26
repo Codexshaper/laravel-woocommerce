@@ -82,9 +82,16 @@ trait QueryBuilderTrait
         return WooCommerce::delete("{$this->endpoint}/{$id}", $options);
     }
 
+    /**
+     * Batch Update
+     *
+     * @param array $data
+     *
+     * @return object
+     */
     protected function batch($data)
     {
-        return WooCommerce::create('{$this->endpoint}/batch', $options);
+        return WooCommerce::create('{$this->endpoint}/batch', $data);
     }
 
     /**

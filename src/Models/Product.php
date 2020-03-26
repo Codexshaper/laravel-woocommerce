@@ -7,7 +7,7 @@ use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Product extends BaseModel
 {
-    use QueryBuilderTrait;
-
+	use QueryBuilderTrait;
+	
     protected $endpoint = 'products';
 }
