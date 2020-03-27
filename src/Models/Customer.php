@@ -12,7 +12,8 @@ class Customer extends BaseModel
 
     protected function downloads($id)
     {
-    	$this->endpoint = "customers/{$id}/downloads";
-    	return self::all();
+        $this->endpoint = "customers/{$id}/downloads";
+
+        return self::all();
     }
 }

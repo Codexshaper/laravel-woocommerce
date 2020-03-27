@@ -11,7 +11,7 @@ class Term extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param integer $attribute_id
+     * @param int   $attribute_id
      * @param array $options
      *
      * @return array
