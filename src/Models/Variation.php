@@ -11,7 +11,7 @@ class Variation extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param integer $product_id
+     * @param int   $product_id
      * @param array $options
      *
      * @return array
