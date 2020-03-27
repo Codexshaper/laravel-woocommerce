@@ -1,4 +1,7 @@
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![Build Status](https://travis-ci.org/Codexshaper/laravel-woocommerce.svg?branch=master)](https://travis-ci.org/Codexshaper/laravel-woocommerce)
+[![StyleCI](https://github.styleci.io/repos/180436811/shield?branch=master)](https://github.styleci.io/repos/180436811)
+[![Quality Score](https://img.shields.io/scrutinizer/g/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://scrutinizer-ci.com/g/Codexshaper/laravel-woocommerce)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://packagist.org/packages/Codexshaper/laravel-woocommerce)
 
 # Laravel Woocommerce
