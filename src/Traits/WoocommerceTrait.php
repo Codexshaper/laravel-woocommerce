@@ -2,14 +2,14 @@
 
 namespace Codexshaper\WooCommerce\Traits;
 
-trait WooCommerceTrait
+trait WoocommerceTrait
 {
     /**
      * GET method.
-     * Retrieve data
+     * Retrieve data.
      *
      * @param string $endpoint API endpoint.
-     * @param array $options
+     * @param array  $options
      *
      * @return array
      */
@@ -20,10 +20,10 @@ trait WooCommerceTrait
 
     /**
      * GET method.
-     * Retrieve Single data
+     * Retrieve Single data.
      *
      * @param string $endpoint API endpoint.
-     * @param array $options
+     * @param array  $options
      *
      * @return array
      */
@@ -34,10 +34,10 @@ trait WooCommerceTrait
 
     /**
      * POST method.
-     * Insert data
+     * Insert data.
      *
      * @param string $endpoint API endpoint.
-     * @param array $data
+     * @param array  $data
      *
      * @return array
      */
@@ -48,10 +48,10 @@ trait WooCommerceTrait
 
     /**
      * PUT method.
-     * Update data
+     * Update data.
      *
      * @param string $endpoint API endpoint.
-     * @param array $data
+     * @param array  $data
      *
      * @return array
      */
@@ -62,10 +62,10 @@ trait WooCommerceTrait
 
     /**
      * DELETE method.
-     * Remove data
+     * Remove data.
      *
      * @param string $endpoint API endpoint.
-     * @param array $options
+     * @param array  $options
      *
      * @return array
      */
@@ -75,7 +75,7 @@ trait WooCommerceTrait
     }
 
     /**
-     * Return the last request header
+     * Return the last request header.
      *
      * @return \Automattic\WooCommerce\HttpClient\Request
      */
@@ -85,7 +85,7 @@ trait WooCommerceTrait
     }
 
     /**
-     * Return the http response headers from last request
+     * Return the http response headers from last request.
      *
      * @return \Automattic\WooCommerce\HttpClient\Response
      */
@@ -95,7 +95,7 @@ trait WooCommerceTrait
     }
 
     /**
-     * Count the total results and return it
+     * Count the total results and return it.
      *
      * @return int
      */
@@ -105,7 +105,7 @@ trait WooCommerceTrait
     }
 
     /**
-     * Count the total pages and return
+     * Count the total pages and return.
      *
      * @return mixed
      */
@@ -115,7 +115,7 @@ trait WooCommerceTrait
     }
 
     /**
-     * Return the current page number
+     * Return the current page number.
      *
      * @return int
      */
@@ -125,24 +125,26 @@ trait WooCommerceTrait
     }
 
     /**
-     * Return the previous page number
+     * Return the previous page number.
      *
      * @return int|null
      */
     public function previous()
     {
         $currentPage = $this->current();
+
         return ($currentPage-- > 1) ? $currentPage : null;
     }
 
     /**
-     * Return the next page number
+     * Return the next page number.
      *
      * @return int|null
      */
     public function next()
     {
         $currentPage = $this->current();
+
         return ($currentPage++ < $this->countPages()) ? $currentPage : null;
     }
 }

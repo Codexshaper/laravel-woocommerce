@@ -9,7 +9,7 @@ class System extends BaseModel
     protected $endpoint;
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
      * @param array $options
      *
@@ -21,9 +21,9 @@ class System extends BaseModel
     }
 
     /**
-     * Retrieve single tool
+     * Retrieve single tool.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return object
@@ -34,7 +34,7 @@ class System extends BaseModel
     }
 
     /**
-     * Retrieve all tools
+     * Retrieve all tools.
      *
      * @param array $options
      *
@@ -46,9 +46,9 @@ class System extends BaseModel
     }
 
     /**
-     * Run tool
+     * Run tool.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $data
      *
      * @return object

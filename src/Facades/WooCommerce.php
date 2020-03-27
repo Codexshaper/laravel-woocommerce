@@ -1,4 +1,5 @@
 <?php
+
 namespace Codexshaper\WooCommerce\Facades;
 
 use Codexshaper\WooCommerce\WooCommerceApi;

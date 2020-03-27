@@ -7,20 +7,20 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 trait QueryBuilderTrait
 {
     /**
-     * @var $options
+     * @var
      */
     protected $options = [];
     /**
-     * @var $options
+     * @var
      */
     protected $where = [];
     /**
-     * @var $results
+     * @var
      */
     protected $properties = [];
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
      * @param array $options
      *
@@ -32,9 +32,9 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return object
@@ -45,7 +45,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Create new Item
+     * Create new Item.
      *
      * @param array $data
      *
@@ -57,9 +57,9 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $data
      *
      * @return object
@@ -70,9 +70,9 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Destroy Item
+     * Destroy Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return object
@@ -83,7 +83,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Batch Update
+     * Batch Update.
      *
      * @param array $data
      *
@@ -95,7 +95,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Retrieve data
+     * Retrieve data.
      *
      * @return array
      */
@@ -108,12 +108,11 @@ trait QueryBuilderTrait
         }
         $filteredResults = [];
         foreach ($this->where as $key => $where) {
-
             foreach ($results as $result) {
-                $name      = $where['name'];
-                $name      = $result->$name;
-                $operator  = ($where['operator'] == '=') ? $where['operator'] . "=" : $where['operator'];
-                $value     = $where['value'];
+                $name = $where['name'];
+                $name = $result->$name;
+                $operator = ($where['operator'] == '=') ? $where['operator'].'=' : $where['operator'];
+                $value = $where['value'];
                 $condition = "'$name' $operator '$value'";
                 if (eval("return $condition;")) {
                     $filteredResults[] = $result;
@@ -125,7 +124,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Retrieve data
+     * Retrieve data.
      *
      * @return object
      */
@@ -135,7 +134,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Set options for woocommerce request
+     * Set options for woocommerce request.
      *
      * @param array $parameters
      *
@@ -144,15 +143,14 @@ trait QueryBuilderTrait
     protected function options($parameters)
     {
         if (!is_array($parameters)) {
-            throw new \Exception("Options must be an array", 1);
+            throw new \Exception('Options must be an array', 1);
         }
 
         if (empty($parameters)) {
-            throw new \Exception("Options must be pass at least one element", 1);
+            throw new \Exception('Options must be pass at least one element', 1);
         }
 
         foreach ($parameters as $key => $value) {
-
             $this->options[$key] = $value;
         }
 
@@ -160,7 +158,7 @@ trait QueryBuilderTrait
     }
 
     /**
-     * Join options for woocommerce request
+     * Join options for woocommerce request.
      *
      * @param array $parameters
      *
@@ -188,11 +186,11 @@ trait QueryBuilderTrait
                 }
             }
         }
+
         return $this;
     }
 
     /**
-     *
      * @param string $name
      * @param string $direction
      *
@@ -201,15 +199,14 @@ trait QueryBuilderTrait
     protected function orderBy($name, $direction = 'desc')
     {
         $this->options['orderby'] = $name;
-        $this->options['order']   = $direction;
+        $this->options['order'] = $direction;
 
         return $this;
     }
 
     /**
-     *
-     * @param integer $per_page
-     * @param integer $current_page
+     * @param int $per_page
+     * @param int $current_page
      *
      * @return array
      */
@@ -221,12 +218,12 @@ trait QueryBuilderTrait
             $this->options['page'] = (int) $current_page;
         }
 
-        $results      = $this->get();
+        $results = $this->get();
         $totalResults = WooCommerce::countResults();
-        $totalPages   = WooCommerce::countPages();
-        $currentPage  = WooCommerce::current();
+        $totalPages = WooCommerce::countPages();
+        $currentPage = WooCommerce::current();
         $previousPage = WooCommerce::previous();
-        $nextPage     = WooCommerce::next();
+        $nextPage = WooCommerce::next();
 
         $pagination = [
             'total_results' => $totalResults,
@@ -244,7 +241,6 @@ trait QueryBuilderTrait
     }
 
     /**
-     *
      * @return array
      */
     public function save()

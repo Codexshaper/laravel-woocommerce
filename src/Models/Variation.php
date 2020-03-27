@@ -6,11 +6,10 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 class Variation extends BaseModel
 {
-
     protected $endpoint;
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
      * @param array $options
      *
@@ -22,9 +21,9 @@ class Variation extends BaseModel
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return object
@@ -35,9 +34,9 @@ class Variation extends BaseModel
     }
 
     /**
-     * Create new Item
+     * Create new Item.
      *
-     * @param integer $product_id
+     * @param int   $product_id
      * @param array $data
      *
      * @return object
@@ -48,10 +47,10 @@ class Variation extends BaseModel
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $product_id
-     * @param integer $id
+     * @param int   $product_id
+     * @param int   $id
      * @param array $data
      *
      * @return object
@@ -62,10 +61,10 @@ class Variation extends BaseModel
     }
 
     /**
-     * Destroy Item
+     * Destroy Item.
      *
-     * @param integer $product_id
-     * @param integer $id
+     * @param int   $product_id
+     * @param int   $id
      * @param array $options
      *
      * @return object
@@ -76,9 +75,9 @@ class Variation extends BaseModel
     }
 
     /**
-     * Batch Update
+     * Batch Update.
      *
-     * @param integer $product_id
+     * @param int   $product_id
      * @param array $data
      *
      * @return object
@@ -86,5 +85,5 @@ class Variation extends BaseModel
     protected function batch($product_id, $data)
     {
         return WooCommerce::create("products/{$product_id}/variations/batch", $data);
-    } 
+    }
 }

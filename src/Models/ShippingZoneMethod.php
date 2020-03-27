@@ -9,7 +9,7 @@ class ShippingZoneMethod extends BaseModel
     protected $endpoint = 'shipping_methods';
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
      * @param array $options
      *
@@ -21,9 +21,9 @@ class ShippingZoneMethod extends BaseModel
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return object

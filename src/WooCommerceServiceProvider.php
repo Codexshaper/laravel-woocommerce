@@ -2,12 +2,10 @@
 
 namespace Codexshaper\WooCommerce;
 
-use Codexshaper\WooCommerce\WooCommerceApi;
 use Illuminate\Support\ServiceProvider;
 
 class WooCommerceServiceProvider extends ServiceProvider
 {
-
     /**
      * Boot the service provider.
      *
@@ -16,7 +14,7 @@ class WooCommerceServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/woocommerce.php' => config_path('woocommerce.php'),
+            __DIR__.'/config/woocommerce.php' => config_path('woocommerce.php'),
         ], 'woocommerce');
     }
 
@@ -27,9 +25,9 @@ class WooCommerceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
         $this->mergeConfigFrom(
-            __DIR__ . '/config/woocommerce.php', 'woocommerce'
+            __DIR__.'/config/woocommerce.php',
+            'woocommerce'
         );
 
         $this->app->singleton('WooCommerceApi', function () {
