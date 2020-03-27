@@ -2,99 +2,104 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Attribute extends BaseModel
 {
-	use QueryBuilderTrait;
-	
+    use QueryBuilderTrait;
+
     protected $endpoint = 'products/attributes';
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
-     * @param integer $attribute_id
+     * @param int   $attribute_id
      * @param array $options
      *
      * @return array
      */
     protected function getTerms($attribute_id, $options = [])
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::all($options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $attribute_id
-     * @param integer $term_id
+     * @param int   $attribute_id
+     * @param int   $term_id
      * @param array $options
      *
      * @return object
      */
     protected function getTerm($attribute_id, $term_id, $options = [])
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::find($term_id, $options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::find($term_id, $options);
     }
 
     /**
-     * Create new Item
+     * Create new Item.
      *
-     * @param integer $attribute_id
+     * @param int   $attribute_id
      * @param array $data
      *
      * @return object
      */
     protected function addTerm($attribute_id, $data)
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::create($data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::create($data);
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $attribute_id
-     * @param integer $term_id
+     * @param int   $attribute_id
+     * @param int   $term_id
      * @param array $data
      *
      * @return object
      */
     protected function updateTerm($attribute_id, $term_id, $data)
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::update($term_id, $data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::update($term_id, $data);
     }
 
     /**
-     * Destroy Item
+     * Destroy Item.
      *
-     * @param integer $attribute_id
-     * @param integer $term_id
+     * @param int   $attribute_id
+     * @param int   $term_id
      * @param array $options
      *
      * @return object
      */
     protected function deleteTerm($attribute_id, $term_id, $options = [])
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::delete($term_id, $options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::delete($term_id, $options);
     }
 
     /**
-     * Batch Update
+     * Batch Update.
      *
-     * @param integer $attribute_id
+     * @param int   $attribute_id
      * @param array $data
      *
      * @return object
      */
     protected function batchTerm($attribute_id, $data)
     {
-    	$this->endpoint = "products/attributes/{$attribute_id}/terms";
-    	return self::batch($data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::batch($data);
     }
 }

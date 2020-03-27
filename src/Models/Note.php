@@ -6,13 +6,12 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 class Note extends BaseModel
 {
-
     protected $endpoint;
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
-     * @param integer $order_id
+     * @param int   $order_id
      * @param array $options
      *
      * @return array
@@ -23,10 +22,10 @@ class Note extends BaseModel
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $order_id
-     * @param integer $note_id
+     * @param int   $order_id
+     * @param int   $note_id
      * @param array $options
      *
      * @return object
@@ -37,9 +36,9 @@ class Note extends BaseModel
     }
 
     /**
-     * Create new Item
+     * Create new Item.
      *
-     * @param integer $order_id
+     * @param int   $order_id
      * @param array $data
      *
      * @return object
@@ -50,10 +49,10 @@ class Note extends BaseModel
     }
 
     /**
-     * Destroy Item
+     * Destroy Item.
      *
-     * @param integer $order_id
-     * @param integer $note_id
+     * @param int   $order_id
+     * @param int   $note_id
      * @param array $options
      *
      * @return object

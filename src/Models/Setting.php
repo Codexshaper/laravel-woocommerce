@@ -6,11 +6,10 @@ use Codexshaper\WooCommerce\Facades\WooCommerce;
 
 class Setting extends BaseModel
 {
-	
     protected $endpoint = 'settings';
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
      * @param array $options
      *
@@ -22,10 +21,10 @@ class Setting extends BaseModel
     }
 
     /**
-     * Retrieve option
+     * Retrieve option.
      *
-     * @param integer $group_id
-     * @param integer $id
+     * @param int   $group_id
+     * @param int   $id
      * @param array $options
      *
      * @return array
@@ -36,9 +35,9 @@ class Setting extends BaseModel
     }
 
     /**
-     * Retrieve options
+     * Retrieve options.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return array
@@ -49,10 +48,10 @@ class Setting extends BaseModel
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $group_id
-     * @param integer $id
+     * @param int   $group_id
+     * @param int   $id
      * @param array $data
      *
      * @return object
@@ -63,7 +62,7 @@ class Setting extends BaseModel
     }
 
     /**
-     * Batch Update
+     * Batch Update.
      *
      * @param array $data
      *

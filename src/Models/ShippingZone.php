@@ -2,113 +2,112 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class ShippingZone extends BaseModel
 {
-	use QueryBuilderTrait;
-	
+    use QueryBuilderTrait;
+
     protected $endpoint = 'shipping/zones';
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return array
      */
     protected function getLocations($id, $options = [])
     {
-    	$this->endpoint = "shipping/zones/{$id}/locations";
-    	self::all($options);
+        $this->endpoint = "shipping/zones/{$id}/locations";
+        self::all($options);
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $data
      *
      * @return object
      */
     protected function updateLocations($id, $data = [])
     {
-    	$this->endpoint = "shipping/zones/{$id}/locations";
-    	self::update($data);
+        $this->endpoint = "shipping/zones/{$id}/locations";
+        self::update($data);
     }
 
     /**
-     * Create new Item
+     * Create new Item.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $data
      *
      * @return object
      */
     protected function addShippingZoneMethod($id, $data)
     {
-    	$this->endpoint = "shipping/zones/{$id}/methods";
-    	self::create($data);
+        $this->endpoint = "shipping/zones/{$id}/methods";
+        self::create($data);
     }
 
     /**
-     * Retrieve single Item
+     * Retrieve single Item.
      *
-     * @param integer $zone_id
-     * @param integer $id
+     * @param int   $zone_id
+     * @param int   $id
      * @param array $options
      *
      * @return object
      */
     protected function getShippingZoneMethod($zone_id, $id, $options = [])
     {
-    	$this->endpoint = "shipping/zones/{$zone_id}/methods";
-    	self::find($id, $options);
+        $this->endpoint = "shipping/zones/{$zone_id}/methods";
+        self::find($id, $options);
     }
 
     /**
-     * Retrieve all Items
+     * Retrieve all Items.
      *
-     * @param integer $id
+     * @param int   $id
      * @param array $options
      *
      * @return array
      */
     protected function getShippingZoneMethods($id, $options = [])
     {
-    	$this->endpoint = "shipping/zones/{$id}/methods";
-    	self::all($options);
+        $this->endpoint = "shipping/zones/{$id}/methods";
+        self::all($options);
     }
 
     /**
-     * Update Existing Item
+     * Update Existing Item.
      *
-     * @param integer $zone_id
-     * @param integer $id
+     * @param int   $zone_id
+     * @param int   $id
      * @param array $data
      *
      * @return object
      */
     protected function updateShippingZoneMethod($zone_id, $id, $data = [])
     {
-    	$this->endpoint = "shipping/zones/{$zone_id}/methods";
-    	self::update($id, $data);
+        $this->endpoint = "shipping/zones/{$zone_id}/methods";
+        self::update($id, $data);
     }
 
     /**
-     * Destroy Item
+     * Destroy Item.
      *
-     * @param integer $zone_id
-     * @param integer $id
+     * @param int   $zone_id
+     * @param int   $id
      * @param array $options
      *
      * @return object
      */
     protected function deleteShippingZoneMethod($zone_id, $id, $options = [])
     {
-    	$this->endpoint = "shipping/zones/{$zone_id}/methods";
-    	self::delete($id, $options);
+        $this->endpoint = "shipping/zones/{$zone_id}/methods";
+        self::delete($id, $options);
     }
 }

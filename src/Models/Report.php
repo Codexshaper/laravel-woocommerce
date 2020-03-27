@@ -2,17 +2,16 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Report extends BaseModel
 {
-	use QueryBuilderTrait;
-	
+    use QueryBuilderTrait;
+
     protected $endpoint = 'reports';
 
     /**
-     * Retrieve all sales
+     * Retrieve all sales.
      *
      * @param array $options
      *
@@ -20,12 +19,13 @@ class Report extends BaseModel
      */
     protected function sales($options = [])
     {
-    	$this->endpoint = 'reports/sales';
-    	return self::all($options);
+        $this->endpoint = 'reports/sales';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all top sellers
+     * Retrieve all top sellers.
      *
      * @param array $options
      *
@@ -33,12 +33,13 @@ class Report extends BaseModel
      */
     protected function topSellers($options = [])
     {
-    	$this->endpoint = 'reports/top_sellers';
-    	return self::all($options);
+        $this->endpoint = 'reports/top_sellers';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all coupons
+     * Retrieve all coupons.
      *
      * @param array $options
      *
@@ -46,12 +47,13 @@ class Report extends BaseModel
      */
     protected function coupons($options = [])
     {
-    	$this->endpoint = 'reports/coupons/totals';
-    	return self::all($options);
+        $this->endpoint = 'reports/coupons/totals';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all customers
+     * Retrieve all customers.
      *
      * @param array $options
      *
@@ -59,12 +61,13 @@ class Report extends BaseModel
      */
     protected function customers($options = [])
     {
-    	$this->endpoint = 'reports/customers/totals';
-    	return self::all($options);
+        $this->endpoint = 'reports/customers/totals';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all orders
+     * Retrieve all orders.
      *
      * @param array $options
      *
@@ -72,12 +75,13 @@ class Report extends BaseModel
      */
     protected function orders($options = [])
     {
-    	$this->endpoint = 'reports/orders/totals';
-    	return self::all($options);
+        $this->endpoint = 'reports/orders/totals';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all products
+     * Retrieve all products.
      *
      * @param array $options
      *
@@ -85,12 +89,13 @@ class Report extends BaseModel
      */
     protected function products($options = [])
     {
-    	$this->endpoint = 'reports/products/totals';
-    	return self::all($options);
+        $this->endpoint = 'reports/products/totals';
+
+        return self::all($options);
     }
 
     /**
-     * Retrieve all reviews
+     * Retrieve all reviews.
      *
      * @param array $options
      *
@@ -98,7 +103,8 @@ class Report extends BaseModel
      */
     protected function reviews($options = [])
     {
-    	$this->endpoint = 'reports/reviews/totals';
-    	return self::all($options);
+        $this->endpoint = 'reports/reviews/totals';
+
+        return self::all($options);
     }
 }

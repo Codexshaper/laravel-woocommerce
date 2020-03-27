@@ -2,14 +2,12 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
-
 class BaseModel
 {
     protected $properties = [];
 
     /**
-     * Get  Inaccessible Property
+     * Get  Inaccessible Property.
      *
      * @param string $name
      *
@@ -21,7 +19,7 @@ class BaseModel
     }
 
     /**
-     * Set Option
+     * Set Option.
      *
      * @param string $name
      * @param string $value
@@ -40,6 +38,6 @@ class BaseModel
 
     public static function __callStatic($method, $parameters)
     {
-        return (new static )->$method(...$parameters);
+        return (new static() )->$method(...$parameters);
     }
 }
