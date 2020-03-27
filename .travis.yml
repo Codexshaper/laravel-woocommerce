@@ -3,15 +3,17 @@ language: php
 php:
   - '7.2'
   - '7.3'
-  
-cache:
-  directories:
-    - $HOME/.composer/cache
-    - node_modules
 
 before_script:
   - travis_retry composer self-update
   - travis_retry composer update --prefer-lowest --prefer-source --no-interaction
+
+script:
+  - phpunit --coverage-text --coverage-clover=coverage.clover
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 notifications:
     on_success: never
