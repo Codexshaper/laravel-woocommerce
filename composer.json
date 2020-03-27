@@ -52,6 +52,7 @@
                 "Tag": "Codexshaper\\WooCommerce\\Models\\Tag",
                 "Tax": "Codexshaper\\WooCommerce\\Models\\Tax",
                 "TaxClass": "Codexshaper\\WooCommerce\\Models\\TaxClass",
+                "Term": "Codexshaper\\WooCommerce\\Models\\Term",
                 "Variation": "Codexshaper\\WooCommerce\\Models\\Variation",
                 "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
             }

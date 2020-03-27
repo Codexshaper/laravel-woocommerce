@@ -91,7 +91,7 @@ trait QueryBuilderTrait
      */
     protected function batch($data)
     {
-        return WooCommerce::create('{$this->endpoint}/batch', $data);
+        return WooCommerce::create("{$this->endpoint}/batch", $data);
     }
 
     /**

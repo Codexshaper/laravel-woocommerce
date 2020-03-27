@@ -4,8 +4,19 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://scrutinizer-ci.com/g/Codexshaper/laravel-woocommerce)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://packagist.org/packages/Codexshaper/laravel-woocommerce)
 
-# Laravel Woocommerce
+# Description
 WooCommerce Rest API for Laravel. You can Get, Create, Update and Delete your woocommerce product using this package easily.
+
+[Documentation](https://codexshaper.github.io/docs/laravel-woocommerce/)
+
+## Authors
+
+* **Md Abu Ahsan Basir** - [github](https://github.com/maab16)
+
+## License
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2020 © <a href="https://github.com/Codexshaper/laravel-woocommerce/blob/master/LICENSE" target="_blank">CodexShaper</a>.
 
 #Install
 
