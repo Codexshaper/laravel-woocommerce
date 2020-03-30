@@ -5,7 +5,7 @@ namespace Codexshaper\WooCommerce;
 use Automattic\WooCommerce\Client;
 use Codexshaper\WooCommerce\Traits\WoocommerceTrait;
 
-class WoocommerceApi
+class WooCommerceApi
 {
     use WooCommerceTrait;
 

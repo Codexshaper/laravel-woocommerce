@@ -13,6 +13,6 @@ class WoocommerceFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Codexshaper\Woocommerce\WoocommerceApi';
+        return 'Codexshaper\Woocommerce\WooCommerceApi';
     }
 }

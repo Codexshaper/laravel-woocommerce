@@ -33,6 +33,6 @@ class WooCommerceServiceProvider extends ServiceProvider
         $this->app->singleton('WooCommerceApi', function () {
             return new WooCommerceApi();
         });
-        $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WoocommerceApi');
+        $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WooCommerceApi');
     }
 }
