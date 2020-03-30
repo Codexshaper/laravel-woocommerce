@@ -2,7 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Traits;
 
-trait WooCommerceTrait
+trait WoocommerceTrait
 {
     /**
      * GET method.
