@@ -15,6 +15,7 @@ trait WoocommerceTrait
      */
     public function all($endpoint = '', $options = [])
     {
+        self::__construct();
         return $this->client->get($endpoint, $options);
     }
 
@@ -29,6 +30,7 @@ trait WoocommerceTrait
      */
     public function find($endpoint = '', $options = [])
     {
+        self::__construct();
         return $this->client->get($endpoint, $options);
     }
 
@@ -43,6 +45,7 @@ trait WoocommerceTrait
      */
     public function create($endpoint, $data)
     {
+        self::__construct();
         return $this->client->post($endpoint, $data);
     }
 
@@ -57,6 +60,7 @@ trait WoocommerceTrait
      */
     public function update($endpoint, $data)
     {
+        self::__construct();
         return $this->client->put($endpoint, $data);
     }
 
@@ -71,6 +75,7 @@ trait WoocommerceTrait
      */
     public function delete($endpoint, $options = [])
     {
+        self::__construct();
         return $this->client->delete($endpoint, $options);
     }
 
@@ -81,6 +86,7 @@ trait WoocommerceTrait
      */
     public function getRequest()
     {
+        self::__construct();
         return $this->client->http->getRequest();
     }
 
@@ -91,6 +97,7 @@ trait WoocommerceTrait
      */
     public function getResponse()
     {
+        self::__construct();
         return $this->client->http->getResponse();
     }
 
