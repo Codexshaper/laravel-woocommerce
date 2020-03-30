@@ -3,7 +3,7 @@
 namespace Codexshaper\WooCommerce;
 
 use Automattic\WooCommerce\Client;
-use Codexshaper\WooCommerce\Traits\WoocommerceTrait;
+use Codexshaper\WooCommerce\Traits\WooCommerceTrait;
 
 class WooCommerceApi
 {
