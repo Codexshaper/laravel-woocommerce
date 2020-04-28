@@ -253,7 +253,7 @@ trait QueryBuilderTrait
     {
         $results = WooCommerce::all($this->endpoint, $this->options);
         $totalResults = WooCommerce::countResults();
-        
+
         return $totalResults;
     }
 
