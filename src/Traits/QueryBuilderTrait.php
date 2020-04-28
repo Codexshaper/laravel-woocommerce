@@ -191,6 +191,8 @@ trait QueryBuilderTrait
     }
 
     /**
+     * Set order direction.
+     *
      * @param string $name
      * @param string $direction
      *
@@ -205,6 +207,8 @@ trait QueryBuilderTrait
     }
 
     /**
+     * Paginate results.
+     *
      * @param int $per_page
      * @param int $current_page
      *
@@ -241,6 +245,21 @@ trait QueryBuilderTrait
     }
 
     /**
+     * Count all results.
+     *
+     * @return int
+     */
+    protected function count()
+    {
+        $results = WooCommerce::all($this->endpoint, $this->options);
+        $totalResults = WooCommerce::countResults();
+        
+        return $totalResults;
+    }
+
+    /**
+     * Store data.
+     *
      * @return array
      */
     public function save()

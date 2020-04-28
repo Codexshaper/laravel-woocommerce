@@ -91,8 +91,6 @@ trait WooCommerceTrait
      */
     public function getRequest()
     {
-        self::__construct();
-
         return $this->client->http->getRequest();
     }
 
@@ -103,8 +101,6 @@ trait WooCommerceTrait
      */
     public function getResponse()
     {
-        self::__construct();
-
         return $this->client->http->getResponse();
     }
 
