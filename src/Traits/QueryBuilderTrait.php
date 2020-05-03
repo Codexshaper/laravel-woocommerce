@@ -28,7 +28,7 @@ trait QueryBuilderTrait
      */
     protected function all($options = [])
     {
-        return WooCommerce::all($this->endpoint, $options);   
+        return WooCommerce::all($this->endpoint, $options);
     }
 
     /**
@@ -66,7 +66,7 @@ trait QueryBuilderTrait
      */
     protected function update($id, $data)
     {
-        return WooCommerce::update("{$this->endpoint}/{$id}", $data);  
+        return WooCommerce::update("{$this->endpoint}/{$id}", $data);
     }
 
     /**
@@ -102,7 +102,6 @@ trait QueryBuilderTrait
     protected function get()
     {
         try {
-
             $results = WooCommerce::all($this->endpoint, $this->options);
 
             if (empty($this->where)) {
@@ -123,10 +122,8 @@ trait QueryBuilderTrait
             }
 
             return $filteredResults;
-
-        }catch( \Exception $ex) {
+        } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
-            
         }
     }
 
@@ -137,7 +134,7 @@ trait QueryBuilderTrait
      */
     protected function first()
     {
-        return $this->get()[0] ?? new \stdClass;
+        return $this->get()[0] ?? new \stdClass();
     }
 
     /**
@@ -149,7 +146,6 @@ trait QueryBuilderTrait
      */
     protected function options($parameters)
     {
-
         if (!is_array($parameters)) {
             throw new \Exception('Options must be an array', 1);
         }
@@ -225,7 +221,6 @@ trait QueryBuilderTrait
     protected function paginate($per_page, $current_page = 1)
     {
         try {
-
             $this->options['per_page'] = (int) $per_page;
 
             if ($current_page > 0) {
@@ -252,10 +247,8 @@ trait QueryBuilderTrait
             $results['pagination'] = $pagination;
 
             return $results;
-
-        }catch( \Exception $ex) {
+        } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
-            
         }
     }
 
@@ -267,15 +260,12 @@ trait QueryBuilderTrait
     protected function count()
     {
         try {
-
             $results = WooCommerce::all($this->endpoint, $this->options);
             $totalResults = WooCommerce::countResults();
 
             return $totalResults;
-
-        }catch( \Exception $ex) {
+        } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
-            
         }
     }
 
@@ -287,6 +277,7 @@ trait QueryBuilderTrait
     public function save()
     {
         $this->results = WooCommerce::create($this->endpoint, $this->properties);
+
         return $this->results;
     }
 }
