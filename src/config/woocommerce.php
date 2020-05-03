@@ -58,6 +58,7 @@ return [
     /**
      *================================================================================
      * Total results header
+     * Default value X-WP-Total
      *================================================================================.
      */
     'header_total'           => env('WOOCOMMERCE_WP_HEADER_TOTAL', 'X-WP-Total'),
@@ -65,6 +66,7 @@ return [
     /**
      *================================================================================
      * Total pages header
+     * Default value X-WP-TotalPages
      *================================================================================.
      */
     'header_total_pages'           => env('WOOCOMMERCE_WP_HEADER_TOTAL_PAGES', 'X-WP-TotalPages'),
