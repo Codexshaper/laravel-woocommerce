@@ -27,10 +27,10 @@ class WooCommerceApi
     public function __construct()
     {
         $this->headers = [
-            'header_total' => config('woocommerce.header_total') ?? 'X-WP-Total',
+            'header_total'       => config('woocommerce.header_total') ?? 'X-WP-Total',
             'header_total_pages' => config('woocommerce.header_total_pages') ?? 'X-WP-TotalPages',
         ];
-        
+
         $this->client = new Client(
             config('woocommerce.store_url'),
             config('woocommerce.consumer_key'),
