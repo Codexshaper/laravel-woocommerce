@@ -20,7 +20,7 @@ trait WooCommerceTrait
 
             return $this->client->get($endpoint, $options);
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -40,7 +40,7 @@ trait WooCommerceTrait
 
             return $this->client->get($endpoint, $options);
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -60,7 +60,7 @@ trait WooCommerceTrait
 
             return $this->client->post($endpoint, $data);
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -80,7 +80,7 @@ trait WooCommerceTrait
 
             return $this->client->put($endpoint, $data);
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -100,7 +100,7 @@ trait WooCommerceTrait
 
             return $this->client->delete($endpoint, $options);
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -114,7 +114,7 @@ trait WooCommerceTrait
         try {
             return $this->client->http->getRequest();
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 
@@ -128,7 +128,7 @@ trait WooCommerceTrait
         try {
             return $this->client->http->getResponse();
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 

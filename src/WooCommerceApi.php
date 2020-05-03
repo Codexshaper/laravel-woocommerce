@@ -45,7 +45,7 @@ class WooCommerceApi
                 ]
             );
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessages(), 1);
+            throw new \Exception($e->getMessage(), 1);
         }
     }
 }
