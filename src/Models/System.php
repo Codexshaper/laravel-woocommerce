@@ -30,7 +30,7 @@ class System extends BaseModel
      */
     protected function tool($id, $options = [])
     {
-        return collect(WooCommerce::find("system_status/tools/{$id}", $options));
+        return WooCommerce::find("system_status/tools/{$id}", $options);
     }
 
     /**

@@ -32,7 +32,7 @@ class Note extends BaseModel
      */
     protected function find($order_id, $note_id, $options = [])
     {
-        return collect(WooCommerce::find("orders/{$order_id}/notes/{$note_id}", $options));
+        return WooCommerce::find("orders/{$order_id}/notes/{$note_id}", $options);
     }
 
     /**

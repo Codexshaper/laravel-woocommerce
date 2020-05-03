@@ -32,7 +32,7 @@ class Refund extends BaseModel
      */
     protected function find($order_id, $refund_id, $options = [])
     {
-        return collect(WooCommerce::find("orders/{$order_id}/refunds/{$refund_id}", $options));
+        return WooCommerce::find("orders/{$order_id}/refunds/{$refund_id}", $options);
     }
 
     /**

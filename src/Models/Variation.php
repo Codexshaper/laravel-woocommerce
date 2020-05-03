@@ -32,7 +32,7 @@ class Variation extends BaseModel
      */
     protected function find($product_id, $id, $options = [])
     {
-        return collect(WooCommerce::find("products/{$product_id}/variations/{$id}", $options));
+        return WooCommerce::find("products/{$product_id}/variations/{$id}", $options);
     }
 
     /**

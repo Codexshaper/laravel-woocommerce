@@ -28,7 +28,7 @@ trait QueryBuilderTrait
      */
     protected function all($options = [])
     {
-        return WooCommerce::all($this->endpoint, $options);
+        return WooCommerce::all($this->endpoint, $options);   
     }
 
     /**
@@ -41,7 +41,7 @@ trait QueryBuilderTrait
      */
     protected function find($id, $options = [])
     {
-        return collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
+        return WooCommerce::find("{$this->endpoint}/{$id}", $options);
     }
 
     /**
@@ -66,7 +66,7 @@ trait QueryBuilderTrait
      */
     protected function update($id, $data)
     {
-        return WooCommerce::update("{$this->endpoint}/{$id}", $data);
+        return WooCommerce::update("{$this->endpoint}/{$id}", $data);  
     }
 
     /**
@@ -101,26 +101,33 @@ trait QueryBuilderTrait
      */
     protected function get()
     {
-        $results = WooCommerce::all($this->endpoint, $this->options);
+        try {
 
-        if (empty($this->where)) {
-            return $results;
-        }
-        $filteredResults = [];
-        foreach ($this->where as $key => $where) {
-            foreach ($results as $result) {
-                $name = $where['name'];
-                $name = $result->$name;
-                $operator = ($where['operator'] == '=') ? $where['operator'].'=' : $where['operator'];
-                $value = $where['value'];
-                $condition = "'$name' $operator '$value'";
-                if (eval("return $condition;")) {
-                    $filteredResults[] = $result;
+            $results = WooCommerce::all($this->endpoint, $this->options);
+
+            if (empty($this->where)) {
+                return $results;
+            }
+            $filteredResults = [];
+            foreach ($this->where as $key => $where) {
+                foreach ($results as $result) {
+                    $name = $where['name'];
+                    $name = $result->$name;
+                    $operator = ($where['operator'] == '=') ? $where['operator'].'=' : $where['operator'];
+                    $value = $where['value'];
+                    $condition = "'$name' $operator '$value'";
+                    if (eval("return $condition;")) {
+                        $filteredResults[] = $result;
+                    }
                 }
             }
-        }
 
-        return $filteredResults;
+            return $filteredResults;
+
+        }catch( \Exception $ex) {
+            throw new \Exception($ex->getMessage(), 1);
+            
+        }
     }
 
     /**
@@ -130,7 +137,7 @@ trait QueryBuilderTrait
      */
     protected function first()
     {
-        return collect($this->get()[0]);
+        return $this->get()[0] ?? new \stdClass;
     }
 
     /**
@@ -142,6 +149,7 @@ trait QueryBuilderTrait
      */
     protected function options($parameters)
     {
+
         if (!is_array($parameters)) {
             throw new \Exception('Options must be an array', 1);
         }
@@ -216,32 +224,39 @@ trait QueryBuilderTrait
      */
     protected function paginate($per_page, $current_page = 1)
     {
-        $this->options['per_page'] = (int) $per_page;
+        try {
 
-        if ($current_page > 0) {
-            $this->options['page'] = (int) $current_page;
+            $this->options['per_page'] = (int) $per_page;
+
+            if ($current_page > 0) {
+                $this->options['page'] = (int) $current_page;
+            }
+
+            $results = $this->get();
+            $totalResults = WooCommerce::countResults();
+            $totalPages = WooCommerce::countPages();
+            $currentPage = WooCommerce::current();
+            $previousPage = WooCommerce::previous();
+            $nextPage = WooCommerce::next();
+
+            $pagination = [
+                'total_results' => $totalResults,
+                'total_pages'   => $totalPages,
+                'current_page'  => $currentPage,
+                'previous_page' => $previousPage,
+                'next_page'     => $nextPage,
+                'first_page'    => 1,
+                'last_page'     => $totalResults,
+            ];
+
+            $results['pagination'] = $pagination;
+
+            return $results;
+
+        }catch( \Exception $ex) {
+            throw new \Exception($ex->getMessage(), 1);
+            
         }
-
-        $results = $this->get();
-        $totalResults = WooCommerce::countResults();
-        $totalPages = WooCommerce::countPages();
-        $currentPage = WooCommerce::current();
-        $previousPage = WooCommerce::previous();
-        $nextPage = WooCommerce::next();
-
-        $pagination = [
-            'total_results' => $totalResults,
-            'total_pages'   => $totalPages,
-            'current_page'  => $currentPage,
-            'previous_page' => $previousPage,
-            'next_page'     => $nextPage,
-            'first_page'    => 1,
-            'last_page'     => $totalResults,
-        ];
-
-        $results['pagination'] = $pagination;
-
-        return $results;
     }
 
     /**
@@ -251,10 +266,17 @@ trait QueryBuilderTrait
      */
     protected function count()
     {
-        $results = WooCommerce::all($this->endpoint, $this->options);
-        $totalResults = WooCommerce::countResults();
+        try {
 
-        return $totalResults;
+            $results = WooCommerce::all($this->endpoint, $this->options);
+            $totalResults = WooCommerce::countResults();
+
+            return $totalResults;
+
+        }catch( \Exception $ex) {
+            throw new \Exception($ex->getMessage(), 1);
+            
+        }
     }
 
     /**
@@ -265,7 +287,6 @@ trait QueryBuilderTrait
     public function save()
     {
         $this->results = WooCommerce::create($this->endpoint, $this->properties);
-
         return $this->results;
     }
 }

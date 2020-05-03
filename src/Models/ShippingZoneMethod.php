@@ -30,6 +30,6 @@ class ShippingZoneMethod extends BaseModel
      */
     protected function find($id, $options = [])
     {
-        return collect(WooCommerce::find("{$this->endpoint}/{$id}", $options));
+        return WooCommerce::find("{$this->endpoint}/{$id}", $options);
     }
 }

@@ -32,7 +32,7 @@ class Term extends BaseModel
      */
     protected function find($attribute_id, $id, $options = [])
     {
-        return collect(WooCommerce::find("products/attributes/{$attribute_id}/terms/{$id}", $options));
+        return WooCommerce::find("products/attributes/{$attribute_id}/terms/{$id}", $options);
     }
 
     /**

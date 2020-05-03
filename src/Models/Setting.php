@@ -31,7 +31,7 @@ class Setting extends BaseModel
      */
     protected function option($group_id, $id, $options = [])
     {
-        return collect(WooCommerce::find("settings/{$group_id}/{$id}", $options));
+        return WooCommerce::find("settings/{$group_id}/{$id}", $options);
     }
 
     /**
@@ -44,7 +44,7 @@ class Setting extends BaseModel
      */
     protected function options($id, $options = [])
     {
-        return collect(WooCommerce::find("settings/{$id}", $options));
+        return WooCommerce::find("settings/{$id}", $options);
     }
 
     /**
