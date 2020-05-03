@@ -19,10 +19,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->get($endpoint, $options);
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
@@ -41,10 +39,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->get($endpoint, $options);
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
@@ -63,10 +59,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->post($endpoint, $data);
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
@@ -85,10 +79,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->put($endpoint, $data);
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
@@ -107,10 +99,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->delete($endpoint, $options);
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
@@ -122,14 +112,10 @@ trait WooCommerceTrait
     public function getRequest()
     {
         try {
-            
             return $this->client->http->getRequest();
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
-        
     }
 
     /**
@@ -140,12 +126,9 @@ trait WooCommerceTrait
     public function getResponse()
     {
         try {
-
             return $this->client->http->getResponse();
-
-        } catch ( \Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessages(), 1);
-            
         }
     }
 
