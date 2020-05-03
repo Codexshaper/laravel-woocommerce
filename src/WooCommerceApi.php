@@ -22,7 +22,6 @@ class WooCommerceApi
     public function __construct()
     {
         try {
-
             $this->client = new Client(
                 config('woocommerce.store_url'),
                 config('woocommerce.consumer_key'),
@@ -35,11 +34,8 @@ class WooCommerceApi
                     'timeout'           => config('woocommerce.timeout'),
                 ]
             );
-
-        }catch( \Exception $ex) {
+        } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
-            
         }
-        
     }
 }
