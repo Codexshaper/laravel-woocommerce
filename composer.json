@@ -1,6 +1,6 @@
 {
     "name": "codexshaper/laravel-woocommerce",
-    "description": "WooCommerce Rest API with Laravel",
+    "description": "WooCommerce Rest API for Laravel",
     "keywords": [
         "woocommerce",
         "laravel",
