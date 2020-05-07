@@ -33,6 +33,14 @@ class BaseModel
 
     public function __call($method, $parameters)
     {
+        if(!method_exists($this, $method)) {
+            preg_match_all('/((?:^|[A-Z])[a-z]+)/', $method, $partials);
+            $method = array_shift($partials[0]);
+            if(!method_exists($this, $method)) {
+                throw new \Exception("Sorry! you are calling wrong method");  
+            }
+            array_unshift($parameters, strtolower(implode('_', $partials[0])));
+        }
         return $this->$method(...$parameters);
     }
 

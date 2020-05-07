@@ -103,25 +103,7 @@ trait QueryBuilderTrait
     {
         try {
             $results = WooCommerce::all($this->endpoint, $this->options);
-
-            if (empty($this->where)) {
-                return $results;
-            }
-            $filteredResults = [];
-            foreach ($this->where as $key => $where) {
-                foreach ($results as $result) {
-                    $name = $where['name'];
-                    $name = $result->$name;
-                    $operator = ($where['operator'] == '=') ? $where['operator'].'=' : $where['operator'];
-                    $value = $where['value'];
-                    $condition = "'$name' $operator '$value'";
-                    if (eval("return $condition;")) {
-                        $filteredResults[] = $result;
-                    }
-                }
-            }
-
-            return $filteredResults;
+            return $results;
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
         }
@@ -170,25 +152,60 @@ trait QueryBuilderTrait
      */
     protected function where(...$parameters)
     {
-        if (count($parameters) == 3) {
-            $where = [
-                'name'     => $parameters[0],
-                'operator' => $parameters[1],
-                'value'    => $parameters[2],
-            ];
-            $this->where[] = $where;
+        if (count($parameters) < 2 || count($parameters) > 3) {
+            throw new \Exception("Too many arguments. You can pass minimum 2 and maximum 3 paramneters");
         }
+        $field = $parameters[0];
+        $value = count($parameters) == 3 ? $parameters[2] : $parameters[1];
 
-        if (count($parameters) == 2) {
-            $this->options[$parameters[0]] = $parameters[1];
-        }
-
-        if (count($parameters) == 1) {
-            foreach ($parameters as $parameter) {
-                foreach ($parameter as $key => $value) {
-                    $this->options[$key] = $value;
-                }
-            }
+        switch ($field) {
+            case 'name':
+            case 'title':
+            case 'description':
+                $this->options['search'] = $value;
+                break;
+            case 'sku':
+                $this->options['sku'] = $value;
+                break;
+            case 'type':
+                $this->options['type'] = $value;
+                break;
+            case 'category':
+                $this->options['category'] = $value;
+                break;
+            case 'tag':
+                $this->options['tag'] = $value;
+                break;
+            case 'after':
+                $this->options['after'] = $value;
+                break;
+            case 'before':
+                $this->options['before'] = $value;
+                break;
+            case 'attribute':
+                $this->options['attribute'] = $value;
+                break;
+            case 'attribute_term':
+                $this->options['attribute_term'] = $value;
+                break;
+            case 'in_stock':
+                $this->options['in_stock'] = $value;
+                break;
+            case 'featured':
+                $this->options['featured'] = $value;
+                break;
+            case 'min_price':
+                $this->options['min_price'] = $value;
+                break;
+            case 'max_price':
+                $this->options['max_price'] = $value;
+                break;
+            case 'shipping_class':
+                $this->options['shipping_class'] = $value;
+                break;
+            case 'tax_class':
+                $this->options['tax_class'] = $value;
+                break;
         }
 
         return $this;
