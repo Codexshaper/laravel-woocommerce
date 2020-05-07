@@ -103,6 +103,7 @@ trait QueryBuilderTrait
     {
         try {
             $results = WooCommerce::all($this->endpoint, $this->options);
+
             return $results;
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
@@ -153,7 +154,7 @@ trait QueryBuilderTrait
     protected function where(...$parameters)
     {
         if (count($parameters) < 2 || count($parameters) > 3) {
-            throw new \Exception("Too many arguments. You can pass minimum 2 and maximum 3 paramneters");
+            throw new \Exception('Too many arguments. You can pass minimum 2 and maximum 3 paramneters');
         }
         $field = $parameters[0];
         $value = count($parameters) == 3 ? $parameters[2] : $parameters[1];
