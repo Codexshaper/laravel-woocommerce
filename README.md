@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/Codexshaper/laravel-woocommerce.svg?branch=master)](https://travis-ci.org/Codexshaper/laravel-woocommerce)
 [![StyleCI](https://github.styleci.io/repos/180436811/shield?branch=master)](https://github.styleci.io/repos/180436811)
 [![Quality Score](https://img.shields.io/scrutinizer/g/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://scrutinizer-ci.com/g/Codexshaper/laravel-woocommerce)
+[![Downloads](https://poser.pugx.org/Codexshaper/laravel-woocommerce/d/total.svg)](https://packagist.org/packages/Codexshaper/laravel-woocommerce)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/Codexshaper/laravel-woocommerce.svg?style=flat-square)](https://packagist.org/packages/Codexshaper/laravel-woocommerce)
 
 # Description
@@ -22,8 +23,12 @@ WooCommerce Rest API for Laravel. You can Get, Create, Update and Delete your wo
 
 ```
 // Where passing multiple parameters
-$orders = Order::where('status', 'publishing')->get();
-$orders = Order::where('total', '>=', 10)->get();
+$products = Product::where('title','hello')->get();
+OR
+// You can call field with where clause
+$products = Product::whereTitle('hello')->get();
+// Fields name are more than one words or seperate by underscore (_). For example field name is `min_price`
+$products = Product::whereMinPrice(5)->get();
 
 // Where passing an array
 $orders = Order::where(['status' => 'processing']);
