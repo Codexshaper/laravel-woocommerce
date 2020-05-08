@@ -148,15 +148,13 @@ trait QueryBuilderTrait
     protected function where(...$parameters)
     {
         if (count($parameters) < 2 || count($parameters) > 3) {
-            throw new \Exception('Too many arguments. You can pass minimum 2 and maximum 3 paramneters');
+            throw new \Exception('You can pass minimum 2 and maximum 3 paramneters');
         }
-        $field = $parameters[0];
+        $field = strtolower($parameters[0]);
         $value = count($parameters) == 3 ? $parameters[2] : $parameters[1];
 
         switch ($field) {
-            case 'name':
-            case 'title':
-            case 'description':
+            case 'name': case 'title': case 'description':
                 $this->options['search'] = $value;
                 break;
             default:
