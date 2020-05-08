@@ -34,9 +34,6 @@ $products = Product::whereMinPrice(5)->get();
 $orders = Order::where(['status' => 'processing']);
 $orders = Order::where(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc'])->get();
 
-// Order with where
-$orders = Order::where('total', '>=', 10)->orderBy('id', 'asc')->get();
-
 // Set Options
 $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc'])->get();
 
