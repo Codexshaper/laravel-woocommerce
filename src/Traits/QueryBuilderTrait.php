@@ -165,47 +165,8 @@ trait QueryBuilderTrait
             case 'description':
                 $this->options['search'] = $value;
                 break;
-            case 'sku':
-                $this->options['sku'] = $value;
-                break;
-            case 'type':
-                $this->options['type'] = $value;
-                break;
-            case 'category':
-                $this->options['category'] = $value;
-                break;
-            case 'tag':
-                $this->options['tag'] = $value;
-                break;
-            case 'after':
-                $this->options['after'] = $value;
-                break;
-            case 'before':
-                $this->options['before'] = $value;
-                break;
-            case 'attribute':
-                $this->options['attribute'] = $value;
-                break;
-            case 'attribute_term':
-                $this->options['attribute_term'] = $value;
-                break;
-            case 'in_stock':
-                $this->options['in_stock'] = $value;
-                break;
-            case 'featured':
-                $this->options['featured'] = $value;
-                break;
-            case 'min_price':
-                $this->options['min_price'] = $value;
-                break;
-            case 'max_price':
-                $this->options['max_price'] = $value;
-                break;
-            case 'shipping_class':
-                $this->options['shipping_class'] = $value;
-                break;
-            case 'tax_class':
-                $this->options['tax_class'] = $value;
+            default:
+                $this->options[$field] = $value;
                 break;
         }
 
