@@ -101,13 +101,7 @@ trait QueryBuilderTrait
      */
     protected function get()
     {
-        try {
-            $results = WooCommerce::all($this->endpoint, $this->options);
-
-            return $results;
-        } catch (\Exception $ex) {
-            throw new \Exception($ex->getMessage(), 1);
-        }
+        return WooCommerce::all($this->endpoint, $this->options);
     }
 
     /**
