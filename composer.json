@@ -15,7 +15,7 @@
         "automattic/woocommerce": "^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0|^8.0"
+        "phpunit/phpunit": "^7.0|^8.0|^9.3"
     },
     "license": "MIT",
     "authors": [
