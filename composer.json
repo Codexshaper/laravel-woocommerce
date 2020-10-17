@@ -43,6 +43,7 @@
                 "Customer": "Codexshaper\\WooCommerce\\Models\\Customer",
                 "Note": "Codexshaper\\WooCommerce\\Models\\Note",
                 "Order": "Codexshaper\\WooCommerce\\Models\\Order",
+                "PaymentGateway": "Codexshaper\\WooCommerce\\Facades\\PaymentGateway",
                 "Product": "Codexshaper\\WooCommerce\\Models\\Product",
                 "Refund": "Codexshaper\\WooCommerce\\Models\\Refund",
                 "Report": "Codexshaper\\WooCommerce\\Models\\Report",
@@ -57,6 +58,7 @@
                 "TaxClass": "Codexshaper\\WooCommerce\\Models\\TaxClass",
                 "Term": "Codexshaper\\WooCommerce\\Models\\Term",
                 "Variation": "Codexshaper\\WooCommerce\\Models\\Variation",
+                "Webhook": "Codexshaper\\WooCommerce\\Facades\\Webhook",
                 "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
             }
         }
