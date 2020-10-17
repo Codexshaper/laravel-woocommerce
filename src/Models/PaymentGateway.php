@@ -4,7 +4,7 @@ namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class PaymentMethod extends BaseModel
+class PaymentGateway extends BaseModel
 {
     use QueryBuilderTrait;
    

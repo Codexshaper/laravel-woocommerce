@@ -4,7 +4,7 @@ namespace Codexshaper\WooCommerce\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class PaymentMethod extends Facade
+class PaymentGateway extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class PaymentMethod extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Codexshaper\WooCommerce\Models\PaymentMethod';
+        return 'Codexshaper\WooCommerce\Models\PaymentGateway';
     }
 }
