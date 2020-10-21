@@ -8,7 +8,7 @@ use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 class System extends BaseModel
 {
     use QueryBuilderTrait;
-    
+
     protected $endpoint;
 
     /**

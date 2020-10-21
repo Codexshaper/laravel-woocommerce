@@ -8,7 +8,7 @@ use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 class ShippingZoneMethod extends BaseModel
 {
     use QueryBuilderTrait;
-    
+
     protected $endpoint = 'shipping_methods';
 
     /**
