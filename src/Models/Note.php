@@ -3,9 +3,12 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Note extends BaseModel
 {
+    use QueryBuilderTrait;
+
     protected $endpoint;
 
     /**

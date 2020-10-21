@@ -3,9 +3,12 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Variation extends BaseModel
 {
+    use QueryBuilderTrait;
+    
     protected $endpoint;
 
     /**
