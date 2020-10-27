@@ -112,9 +112,9 @@ class Variation extends BaseModel
      * @return array
      */
     protected function paginate(
-        $product_id, 
-        $per_page = 10, 
-        $current_page = 1, 
+        $product_id,
+        $per_page = 10,
+        $current_page = 1,
         $options = []
     ) {
         $this->endpoint = "products/{$product_id}/variations";
