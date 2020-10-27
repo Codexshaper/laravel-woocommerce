@@ -12,18 +12,6 @@ class Setting extends BaseModel
     protected $endpoint = 'settings';
 
     /**
-     * Retrieve all Items.
-     *
-     * @param array $options
-     *
-     * @return array
-     */
-    protected function all($options = [])
-    {
-        return WooCommerce::all($this->endpoint, $options);
-    }
-
-    /**
      * Retrieve option.
      *
      * @param int   $group_id
@@ -34,7 +22,9 @@ class Setting extends BaseModel
      */
     protected function option($group_id, $id, $options = [])
     {
-        return WooCommerce::find("settings/{$group_id}/{$id}", $options);
+        $this->endpoint = "settings/{$group_id}";
+
+        return self::find($id, $options);
     }
 
     /**
@@ -47,7 +37,7 @@ class Setting extends BaseModel
      */
     protected function options($id, $options = [])
     {
-        return WooCommerce::find("settings/{$id}", $options);
+        return self::find($id, $options);
     }
 
     /**
@@ -61,7 +51,9 @@ class Setting extends BaseModel
      */
     protected function update($group_id, $id, $data)
     {
-        return WooCommerce::update("settings/{$group_id}/{$id}", $data);
+        $this->endpoint = "settings/{$group_id}";
+
+        return self::update($id, $data);
     }
 
     /**
@@ -73,6 +65,8 @@ class Setting extends BaseModel
      */
     protected function batch($id, $data)
     {
-        return WooCommerce::create("settings/{$id}/batch", $data);
+        $this->endpoint = "settings/{$id}";
+
+        return self::batch($data);
     }
 }

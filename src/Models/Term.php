@@ -2,7 +2,6 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Term extends BaseModel
@@ -21,7 +20,9 @@ class Term extends BaseModel
      */
     protected function all($attribute_id, $options = [])
     {
-        return WooCommerce::all("products/attributes/{$attribute_id}/terms", $options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::all($options);
     }
 
     /**
@@ -35,7 +36,9 @@ class Term extends BaseModel
      */
     protected function find($attribute_id, $id, $options = [])
     {
-        return WooCommerce::find("products/attributes/{$attribute_id}/terms/{$id}", $options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::find($id, $options);
     }
 
     /**
@@ -48,7 +51,9 @@ class Term extends BaseModel
      */
     protected function create($attribute_id, $data)
     {
-        return WooCommerce::create("products/attributes/{$attribute_id}/terms", $data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::create($data);
     }
 
     /**
@@ -62,7 +67,9 @@ class Term extends BaseModel
      */
     protected function update($attribute_id, $id, $data)
     {
-        return WooCommerce::update("products/attributes/{$attribute_id}/terms/{$id}", $data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::update($id, $data);
     }
 
     /**
@@ -76,7 +83,9 @@ class Term extends BaseModel
      */
     protected function delete($attribute_id, $id, $options = [])
     {
-        return WooCommerce::delete("products/attributes/{$attribute_id}/terms/{$id}", $options);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::delete($id, $options);
     }
 
     /**
@@ -89,6 +98,51 @@ class Term extends BaseModel
      */
     protected function batch($attribute_id, $data)
     {
-        return WooCommerce::create("products/attributes/{$attribute_id}/terms/batch", $data);
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::batch($data);
+    }
+
+    /**
+     * Paginate results.
+     *
+     * @param int $per_page
+     * @param int $current_page
+     *
+     * @return array
+     */
+    protected function paginate(
+        $attribute_id, 
+        $per_page = 10, 
+        $current_page = 1, 
+        $options = []
+    ) {
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::paginate($per_page, $current_page, $options);
+    }
+
+    /**
+     * Count all results.
+     *
+     * @return int
+     */
+    protected function count($attribute_id)
+    {
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::count();
+    }
+
+    /**
+     * Store data.
+     *
+     * @return array
+     */
+    public function save($attribute_id)
+    {
+        $this->endpoint = "products/attributes/{$attribute_id}/terms";
+
+        return self::save();
     }
 }

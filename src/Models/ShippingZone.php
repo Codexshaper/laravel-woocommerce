@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class ShippingZone extends BaseModel
@@ -21,7 +22,8 @@ class ShippingZone extends BaseModel
     protected function getLocations($id, $options = [])
     {
         $this->endpoint = "shipping/zones/{$id}/locations";
-        self::all($options);
+        
+        return self::all($options);
     }
 
     /**
@@ -35,7 +37,8 @@ class ShippingZone extends BaseModel
     protected function updateLocations($id, $data = [])
     {
         $this->endpoint = "shipping/zones/{$id}/locations";
-        self::update($data);
+
+        return WooCommerce::update($this->endpoint, $data);
     }
 
     /**
@@ -49,7 +52,8 @@ class ShippingZone extends BaseModel
     protected function addShippingZoneMethod($id, $data)
     {
         $this->endpoint = "shipping/zones/{$id}/methods";
-        self::create($data);
+
+        return self::create($data);
     }
 
     /**
@@ -64,7 +68,8 @@ class ShippingZone extends BaseModel
     protected function getShippingZoneMethod($zone_id, $id, $options = [])
     {
         $this->endpoint = "shipping/zones/{$zone_id}/methods";
-        self::find($id, $options);
+
+        return self::find($id, $options);
     }
 
     /**
@@ -78,7 +83,8 @@ class ShippingZone extends BaseModel
     protected function getShippingZoneMethods($id, $options = [])
     {
         $this->endpoint = "shipping/zones/{$id}/methods";
-        self::all($options);
+
+        return self::all($options);
     }
 
     /**
@@ -93,7 +99,8 @@ class ShippingZone extends BaseModel
     protected function updateShippingZoneMethod($zone_id, $id, $data = [])
     {
         $this->endpoint = "shipping/zones/{$zone_id}/methods";
-        self::update($id, $data);
+
+        return self::update($id, $data);
     }
 
     /**
@@ -108,6 +115,7 @@ class ShippingZone extends BaseModel
     protected function deleteShippingZoneMethod($zone_id, $id, $options = [])
     {
         $this->endpoint = "shipping/zones/{$zone_id}/methods";
-        self::delete($id, $options);
+
+        return self::delete($id, $options);
     }
 }

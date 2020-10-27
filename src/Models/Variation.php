@@ -2,7 +2,6 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Variation extends BaseModel
@@ -21,7 +20,9 @@ class Variation extends BaseModel
      */
     protected function all($product_id, $options = [])
     {
-        return WooCommerce::all("products/{$product_id}/variations", $options);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::all($options);
     }
 
     /**
@@ -35,7 +36,9 @@ class Variation extends BaseModel
      */
     protected function find($product_id, $id, $options = [])
     {
-        return WooCommerce::find("products/{$product_id}/variations/{$id}", $options);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::find($id, $options);
     }
 
     /**
@@ -48,7 +51,9 @@ class Variation extends BaseModel
      */
     protected function create($product_id, $data)
     {
-        return WooCommerce::create("products/{$product_id}/variations", $data);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::create($data);
     }
 
     /**
@@ -62,7 +67,9 @@ class Variation extends BaseModel
      */
     protected function update($product_id, $id, $data)
     {
-        return WooCommerce::update("products/{$product_id}/variations/{$id}", $data);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::update($id, $data);
     }
 
     /**
@@ -76,7 +83,9 @@ class Variation extends BaseModel
      */
     protected function delete($product_id, $id, $options = [])
     {
-        return WooCommerce::delete("products/{$product_id}/variations/{$id}", $options);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::delete($id, $options);
     }
 
     /**
@@ -89,6 +98,51 @@ class Variation extends BaseModel
      */
     protected function batch($product_id, $data)
     {
-        return WooCommerce::create("products/{$product_id}/variations/batch", $data);
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::batch($data);
+    }
+
+    /**
+     * Paginate results.
+     *
+     * @param int $per_page
+     * @param int $current_page
+     *
+     * @return array
+     */
+    protected function paginate(
+        $product_id, 
+        $per_page = 10, 
+        $current_page = 1, 
+        $options = []
+    ) {
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::paginate($per_page, $current_page, $options);
+    }
+
+    /**
+     * Count all results.
+     *
+     * @return int
+     */
+    protected function count($product_id)
+    {
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::count();
+    }
+
+    /**
+     * Store data.
+     *
+     * @return array
+     */
+    public function save($product_id)
+    {
+        $this->endpoint = "products/{$product_id}/variations";
+
+        return self::save();
     }
 }

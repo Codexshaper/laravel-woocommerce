@@ -2,7 +2,6 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Order extends BaseModel
@@ -17,22 +16,30 @@ class Order extends BaseModel
 
     protected function notes($order_id, $options = [])
     {
-        return WooCommerce::all("orders/{$order_id}/notes", $options);
+        $this->endpoint = "orders/{$order_id}/notes";
+
+        return self::all($options);
     }
 
-    protected function note($order_id, $note_id)
+    protected function note($order_id, $note_id, $options = [])
     {
-        return WooCommerce::find("orders/{$order_id}/notes/{$note_id}");
+        $this->endpoint = "orders/{$order_id}/notes";
+
+        return self::find($note_id, $options);
     }
 
     protected function createNote($order_id, $data = [])
     {
-        return WooCommerce::create("orders/{$order_id}/notes", $data);
+        $this->endpoint = "orders/{$order_id}/notes";
+
+        return self::create($data);
     }
 
     protected function deleteNote($order_id, $note_id, $options = [])
     {
-        return WooCommerce::delete("orders/{$order_id}/notes/{$note_id}", $options);
+        $this->endpoint = "orders/{$order_id}/notes";
+
+        return self::delete($note_id, $options);
     }
 
     /*
@@ -41,21 +48,29 @@ class Order extends BaseModel
 
     protected function refunds($order_id, $options = [])
     {
-        return WooCommerce::all("orders/{$order_id}/refunds", $options);
+        $this->endpoint = "orders/{$order_id}/refunds";
+
+        return self::all($options);
     }
 
-    protected function refund($order_id, $refund_id)
+    protected function refund($order_id, $refund_id, $options = [])
     {
-        return WooCommerce::find("orders/{$order_id}/refunds/{$refund_id}");
+        $this->endpoint = "orders/{$order_id}/refunds";
+
+        return self::find($refund_id, $options);
     }
 
     protected function createRefund($order_id, $data = [])
     {
-        return WooCommerce::create("orders/{$order_id}/refunds", $data);
+        $this->endpoint = "orders/{$order_id}/refunds";
+
+        return self::create($data);
     }
 
     protected function deleteRefund($order_id, $refund_id, $options = [])
     {
-        return WooCommerce::delete("orders/{$order_id}/refunds/{$refund_id}", $options);
+        $this->endpoint = "orders/{$order_id}/refunds";
+
+        return self::delete($refund_id, $options);
     }
 }
