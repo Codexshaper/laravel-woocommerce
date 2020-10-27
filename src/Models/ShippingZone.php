@@ -22,7 +22,7 @@ class ShippingZone extends BaseModel
     protected function getLocations($id, $options = [])
     {
         $this->endpoint = "shipping/zones/{$id}/locations";
-        
+
         return self::all($options);
     }
 

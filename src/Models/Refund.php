@@ -81,9 +81,9 @@ class Refund extends BaseModel
      * @return array
      */
     protected function paginate(
-        $order_id, 
-        $per_page = 10, 
-        $current_page = 1, 
+        $order_id,
+        $per_page = 10,
+        $current_page = 1,
         $options = []
     ) {
         $this->endpoint = "orders/{$order_id}/refunds";

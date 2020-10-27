@@ -112,9 +112,9 @@ class Term extends BaseModel
      * @return array
      */
     protected function paginate(
-        $attribute_id, 
-        $per_page = 10, 
-        $current_page = 1, 
+        $attribute_id,
+        $per_page = 10,
+        $current_page = 1,
         $options = []
     ) {
         $this->endpoint = "products/attributes/{$attribute_id}/terms";
