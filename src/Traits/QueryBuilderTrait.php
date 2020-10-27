@@ -189,7 +189,7 @@ trait QueryBuilderTrait
      *
      * @return array
      */
-    protected function paginate($per_page, $current_page = 1)
+    protected function paginate($per_page = 10, $current_page = 1)
     {
         try {
             $this->options['per_page'] = (int) $per_page;
