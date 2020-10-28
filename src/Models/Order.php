@@ -33,7 +33,7 @@ class Order extends BaseModel
      * @param int   $note_id
      * @param array $options
      *
-     * @return Object
+     * @return object
      */
     protected function note($order_id, $note_id, $options = [])
     {
@@ -48,7 +48,7 @@ class Order extends BaseModel
      * @param int   $order_id
      * @param array $data
      *
-     * @return Object
+     * @return object
      */
     protected function createNote($order_id, $data = [])
     {
@@ -64,7 +64,7 @@ class Order extends BaseModel
      * @param int   $note_id
      * @param array $options
      *
-     * @return Object
+     * @return object
      */
     protected function deleteNote($order_id, $note_id, $options = [])
     {
@@ -95,7 +95,7 @@ class Order extends BaseModel
      * @param int   $refund_id
      * @param array $options
      *
-     * @return Object
+     * @return object
      */
     protected function refund($order_id, $refund_id, $options = [])
     {
@@ -110,7 +110,7 @@ class Order extends BaseModel
      * @param int   $order_id
      * @param array $data
      *
-     * @return Object
+     * @return object
      */
     protected function createRefund($order_id, $data = [])
     {
@@ -126,7 +126,7 @@ class Order extends BaseModel
      * @param int   $refund_id
      * @param array $options
      *
-     * @return Object
+     * @return object
      */
     protected function deleteRefund($order_id, $refund_id, $options = [])
     {

@@ -14,13 +14,13 @@ class Customer extends BaseModel
     /**
      * Download.
      *
-     * @param int   $id
+     * @param int $id
      *
      * @return object
      */
     protected function downloads($id)
     {
-    	return Query::init()
+        return Query::init()
             ->setEndpoint("customers/{$id}/downloads")
             ->all($options);
     }

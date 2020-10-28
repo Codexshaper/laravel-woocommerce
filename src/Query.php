@@ -7,28 +7,29 @@ use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Query extends BaseMOdel
 {
-	use QueryBuilderTrait;
+    use QueryBuilderTrait;
 
-	protected $endpoint;
-	protected static $instance = null;
+    protected $endpoint;
+    protected static $instance = null;
 
-	public function __construct($endpoint = '')
-	{
-		$this->endpoint = $endpoint;
-	}
+    public function __construct($endpoint = '')
+    {
+        $this->endpoint = $endpoint;
+    }
 
-	public function setEndpoint($endpoint)
-	{
-		$this->endpoint = $endpoint;
-		return $this;
-	}
+    public function setEndpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
 
-	public function init()
-	{
-		if (!static::$instance) {
-			static::$instance = new static();
-		}
+        return $this;
+    }
 
-		return static::$instance;
-	}
+    public function init()
+    {
+        if (!static::$instance) {
+            static::$instance = new static();
+        }
+
+        return static::$instance;
+    }
 }

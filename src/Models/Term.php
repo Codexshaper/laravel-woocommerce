@@ -8,7 +8,7 @@ use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 class Term extends BaseModel
 {
     use QueryBuilderTrait;
-    
+
     protected $endpoint;
 
     /**
@@ -107,9 +107,9 @@ class Term extends BaseModel
     /**
      * Paginate results.
      *
-     * @param int $attribute_id
-     * @param int $per_page
-     * @param int $current_page
+     * @param int   $attribute_id
+     * @param int   $per_page
+     * @param int   $current_page
      * @param array $options
      *
      * @return array
