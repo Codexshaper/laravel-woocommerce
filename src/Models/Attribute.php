@@ -99,7 +99,7 @@ class Attribute extends BaseModel
      */
     protected function batchTerm($attribute_id, $data)
     {
-        $return Query::init()
+        return Query::init()
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->batch($data);
     }
