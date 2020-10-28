@@ -3,6 +3,7 @@
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
+use Codexshaper\WooCommerce\Facades\Query;
 
 class Variation extends BaseModel
 {
@@ -20,9 +21,9 @@ class Variation extends BaseModel
      */
     protected function all($product_id, $options = [])
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,9 @@ class Variation extends BaseModel
      */
     protected function find($product_id, $id, $options = [])
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->find($id, $options);
     }
 
     /**
@@ -51,9 +52,9 @@ class Variation extends BaseModel
      */
     protected function create($product_id, $data)
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->create($data);
     }
 
     /**
@@ -67,9 +68,9 @@ class Variation extends BaseModel
      */
     protected function update($product_id, $id, $data)
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::update($id, $data);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->update($id, $data);;
     }
 
     /**
@@ -83,9 +84,9 @@ class Variation extends BaseModel
      */
     protected function delete($product_id, $id, $options = [])
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::delete($id, $options);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->delete($id, $options);
     }
 
     /**
@@ -98,16 +99,18 @@ class Variation extends BaseModel
      */
     protected function batch($product_id, $data)
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::batch($data);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->batch($data);
     }
 
     /**
      * Paginate results.
      *
+     * @param int $product_id
      * @param int $per_page
      * @param int $current_page
+     * @param array $options
      *
      * @return array
      */
@@ -117,32 +120,36 @@ class Variation extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::paginate($per_page, $current_page, $options);
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->paginate($per_page, $current_page, $options);
     }
 
     /**
      * Count all results.
      *
+     * @param int $product_id
+     *
      * @return int
      */
     protected function count($product_id)
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::count();
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->count();
     }
 
     /**
      * Store data.
      *
+     * @param int $product_id
+     *
      * @return array
      */
     public function save($product_id)
     {
-        $this->endpoint = "products/{$product_id}/variations";
-
-        return self::save();
+        return Query::init()
+            ->setEndpoint("products/{$product_id}/variations")
+            ->save();
     }
 }

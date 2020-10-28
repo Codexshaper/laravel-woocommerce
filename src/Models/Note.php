@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Note extends BaseModel
@@ -20,9 +21,9 @@ class Note extends BaseModel
      */
     protected function all($order_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,9 @@ class Note extends BaseModel
      */
     protected function find($order_id, $note_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::find($note_id, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->find($note_id, $options);
     }
 
     /**
@@ -51,9 +52,9 @@ class Note extends BaseModel
      */
     protected function create($order_id, $data)
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->create($data);
     }
 
     /**
@@ -67,16 +68,19 @@ class Note extends BaseModel
      */
     protected function delete($order_id, $note_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::delete($note_id, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->delete($note_id, $options);
     }
 
     /**
      * Paginate results.
      *
+     *
+     * @param int $order_id
      * @param int $per_page
      * @param int $current_page
+     * @param array $options
      *
      * @return array
      */
@@ -86,32 +90,36 @@ class Note extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::paginate($per_page, $current_page, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->paginate($per_page, $current_page, $options);
     }
 
     /**
      * Count all results.
      *
+     * @param int $order_id
+     *
      * @return int
      */
     protected function count($order_id)
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::count();
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->count();
     }
 
     /**
      * Store data.
      *
+     * @param int $order_id
+     *
      * @return array
      */
     public function save($order_id)
     {
-        $this->endpoint = "orders/{$order_id}/notes";
-
-        return self::save();
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/notes")
+            ->save();
     }
 }

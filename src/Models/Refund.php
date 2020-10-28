@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Refund extends BaseModel
@@ -20,9 +21,9 @@ class Refund extends BaseModel
      */
     protected function all($order_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,9 @@ class Refund extends BaseModel
      */
     protected function find($order_id, $refund_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::find($refund_id, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->find($refund_id, $options);
     }
 
     /**
@@ -51,9 +52,9 @@ class Refund extends BaseModel
      */
     protected function create($order_id, $data)
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->create($data);
     }
 
     /**
@@ -67,16 +68,18 @@ class Refund extends BaseModel
      */
     protected function delete($order_id, $refund_id, $options = [])
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::delete($refund_id, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->delete($refund_id, $options);
     }
 
     /**
      * Paginate results.
      *
+     * @param int $order_id
      * @param int $per_page
      * @param int $current_page
+     * @param array $options
      *
      * @return array
      */
@@ -86,32 +89,36 @@ class Refund extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::paginate($per_page, $current_page, $options);
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->paginate($per_page, $current_page, $options);
     }
 
     /**
      * Count all results.
      *
+     * @param int $order_id
+     *
      * @return int
      */
     protected function count($order_id)
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::count();
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->count();
     }
 
     /**
      * Store data.
      *
+     * @param int $order_id
+     *
      * @return array
      */
     public function save($order_id)
     {
-        $this->endpoint = "orders/{$order_id}/refunds";
-
-        return self::save();
+        return Query::init()
+            ->setEndpoint("orders/{$order_id}/refunds")
+            ->save();
     }
 }

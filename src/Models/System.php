@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class System extends BaseModel
@@ -19,9 +20,9 @@ class System extends BaseModel
      */
     protected function status($options = [])
     {
-        $this->endpoint = 'system_status';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('system_status')
+            ->all($options);
     }
 
     /**
@@ -34,9 +35,9 @@ class System extends BaseModel
      */
     protected function tool($id, $options = [])
     {
-        $this->endpoint = 'system_status/tools';
-
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint('system_status/tools')
+            ->find($id, $options);
     }
 
     /**
@@ -48,9 +49,9 @@ class System extends BaseModel
      */
     protected function tools($options = [])
     {
-        $this->endpoint = 'system_status/tools';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('system_status/tools')
+            ->all($options);
     }
 
     /**
@@ -63,8 +64,8 @@ class System extends BaseModel
      */
     protected function run($id, $data)
     {
-        $this->endpoint = 'system_status/tools';
-
-        return self::update($id, $data);
+        return Query::init()
+            ->setEndpoint('system_status/tools')
+            ->update($id, $data);
     }
 }

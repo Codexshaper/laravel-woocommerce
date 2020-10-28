@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Attribute extends BaseModel
@@ -20,9 +21,9 @@ class Attribute extends BaseModel
      */
     protected function getTerms($attribute_id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,9 @@ class Attribute extends BaseModel
      */
     protected function getTerm($attribute_id, $term_id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::find($term_id, $options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->find($term_id, $options);
     }
 
     /**
@@ -51,9 +52,9 @@ class Attribute extends BaseModel
      */
     protected function addTerm($attribute_id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->create($data);
     }
 
     /**
@@ -67,9 +68,9 @@ class Attribute extends BaseModel
      */
     protected function updateTerm($attribute_id, $term_id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::update($term_id, $data);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->update($term_id, $data);
     }
 
     /**
@@ -83,9 +84,9 @@ class Attribute extends BaseModel
      */
     protected function deleteTerm($attribute_id, $term_id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::delete($term_id, $options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->delete($term_id, $options);
     }
 
     /**
@@ -98,8 +99,8 @@ class Attribute extends BaseModel
      */
     protected function batchTerm($attribute_id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::batch($data);
+        $return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->batch($data);
     }
 }

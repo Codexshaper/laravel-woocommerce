@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
@@ -21,9 +22,9 @@ class ShippingZone extends BaseModel
      */
     protected function getLocations($id, $options = [])
     {
-        $this->endpoint = "shipping/zones/{$id}/locations";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$id}/locations")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,7 @@ class ShippingZone extends BaseModel
      */
     protected function updateLocations($id, $data = [])
     {
-        $this->endpoint = "shipping/zones/{$id}/locations";
-
-        return WooCommerce::update($this->endpoint, $data);
+        return WooCommerce::update("shipping/zones/{$id}/locations", $data);
     }
 
     /**
@@ -51,9 +50,9 @@ class ShippingZone extends BaseModel
      */
     protected function addShippingZoneMethod($id, $data)
     {
-        $this->endpoint = "shipping/zones/{$id}/methods";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$id}/methods")
+            ->create($data);
     }
 
     /**
@@ -67,9 +66,9 @@ class ShippingZone extends BaseModel
      */
     protected function getShippingZoneMethod($zone_id, $id, $options = [])
     {
-        $this->endpoint = "shipping/zones/{$zone_id}/methods";
-
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$zone_id}/methods")
+            ->find($id, $options);
     }
 
     /**
@@ -82,9 +81,9 @@ class ShippingZone extends BaseModel
      */
     protected function getShippingZoneMethods($id, $options = [])
     {
-        $this->endpoint = "shipping/zones/{$id}/methods";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$id}/methods")
+            ->all($options);
     }
 
     /**
@@ -98,9 +97,9 @@ class ShippingZone extends BaseModel
      */
     protected function updateShippingZoneMethod($zone_id, $id, $data = [])
     {
-        $this->endpoint = "shipping/zones/{$zone_id}/methods";
-
-        return self::update($id, $data);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$zone_id}/methods")
+            ->update($id, $data);
     }
 
     /**
@@ -114,8 +113,8 @@ class ShippingZone extends BaseModel
      */
     protected function deleteShippingZoneMethod($zone_id, $id, $options = [])
     {
-        $this->endpoint = "shipping/zones/{$zone_id}/methods";
-
-        return self::delete($id, $options);
+        return Query::init()
+            ->setEndpoint("shipping/zones/{$zone_id}/methods")
+            ->delete($id, $options);
     }
 }

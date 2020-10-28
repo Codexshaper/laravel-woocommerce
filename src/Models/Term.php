@@ -2,12 +2,13 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Term extends BaseModel
 {
     use QueryBuilderTrait;
-
+    
     protected $endpoint;
 
     /**
@@ -20,9 +21,9 @@ class Term extends BaseModel
      */
     protected function all($attribute_id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->all($options);
     }
 
     /**
@@ -36,9 +37,9 @@ class Term extends BaseModel
      */
     protected function find($attribute_id, $id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->find($id, $options);
     }
 
     /**
@@ -51,9 +52,9 @@ class Term extends BaseModel
      */
     protected function create($attribute_id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::create($data);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->create($data);
     }
 
     /**
@@ -67,9 +68,9 @@ class Term extends BaseModel
      */
     protected function update($attribute_id, $id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::update($id, $data);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->update($id, $data);
     }
 
     /**
@@ -83,9 +84,9 @@ class Term extends BaseModel
      */
     protected function delete($attribute_id, $id, $options = [])
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::delete($id, $options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->delete($id, $options);
     }
 
     /**
@@ -98,16 +99,18 @@ class Term extends BaseModel
      */
     protected function batch($attribute_id, $data)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::batch($data);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->batch($data);
     }
 
     /**
      * Paginate results.
      *
+     * @param int $attribute_id
      * @param int $per_page
      * @param int $current_page
+     * @param array $options
      *
      * @return array
      */
@@ -117,32 +120,36 @@ class Term extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::paginate($per_page, $current_page, $options);
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->paginate($per_page, $current_page, $options);
     }
 
     /**
      * Count all results.
      *
+     * @param int $attribute_id
+     *
      * @return int
      */
     protected function count($attribute_id)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::count();
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->count();
     }
 
     /**
      * Store data.
      *
+     * @param int $attribute_id
+     *
      * @return array
      */
     public function save($attribute_id)
     {
-        $this->endpoint = "products/attributes/{$attribute_id}/terms";
-
-        return self::save();
+        return Query::init()
+            ->setEndpoint("products/attributes/{$attribute_id}/terms")
+            ->save();
     }
 }

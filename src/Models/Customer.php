@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Customer extends BaseModel
@@ -10,10 +11,17 @@ class Customer extends BaseModel
 
     protected $endpoint = 'customers';
 
+    /**
+     * Download.
+     *
+     * @param int   $id
+     *
+     * @return object
+     */
     protected function downloads($id)
     {
-        $this->endpoint = "customers/{$id}/downloads";
-
-        return self::all();
+    	return Query::init()
+            ->setEndpoint("customers/{$id}/downloads")
+            ->all($options);
     }
 }

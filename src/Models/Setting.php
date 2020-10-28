@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Setting extends BaseModel
@@ -21,9 +22,9 @@ class Setting extends BaseModel
      */
     protected function option($group_id, $id, $options = [])
     {
-        $this->endpoint = "settings/{$group_id}";
-
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint("settings/{$group_id}")
+            ->find($id, $options);
     }
 
     /**
@@ -36,7 +37,9 @@ class Setting extends BaseModel
      */
     protected function options($id, $options = [])
     {
-        return self::find($id, $options);
+        return Query::init()
+            ->setEndpoint('settings')
+            ->find($id, $options);
     }
 
     /**
@@ -50,9 +53,9 @@ class Setting extends BaseModel
      */
     protected function update($group_id, $id, $data)
     {
-        $this->endpoint = "settings/{$group_id}";
-
-        return self::update($id, $data);
+        return Query::init()
+            ->setEndpoint("settings/{$group_id}")
+            ->update($id, $data);
     }
 
     /**
@@ -64,8 +67,8 @@ class Setting extends BaseModel
      */
     protected function batch($id, $data)
     {
-        $this->endpoint = "settings/{$id}";
-
-        return self::batch($data);
+        return Query::init()
+            ->setEndpoint("settings/{$id}")
+            ->batch($data);
     }
 }

@@ -59,7 +59,8 @@
                 "Term": "Codexshaper\\WooCommerce\\Models\\Term",
                 "Variation": "Codexshaper\\WooCommerce\\Models\\Variation",
                 "Webhook": "Codexshaper\\WooCommerce\\Facades\\Webhook",
-                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce"
+                "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
+                "Query": "Codexshaper\\WooCommerce\\Facades\\Query"
             }
         }
     }

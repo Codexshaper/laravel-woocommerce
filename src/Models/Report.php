@@ -2,6 +2,7 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
+use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Report extends BaseModel
@@ -19,9 +20,9 @@ class Report extends BaseModel
      */
     protected function sales($options = [])
     {
-        $this->endpoint = 'reports/sales';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/sales')
+            ->all($options);
     }
 
     /**
@@ -33,9 +34,9 @@ class Report extends BaseModel
      */
     protected function topSellers($options = [])
     {
-        $this->endpoint = 'reports/top_sellers';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/top_sellers')
+            ->all($options);
     }
 
     /**
@@ -47,9 +48,9 @@ class Report extends BaseModel
      */
     protected function coupons($options = [])
     {
-        $this->endpoint = 'reports/coupons/totals';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/coupons/totals')
+            ->all($options);
     }
 
     /**
@@ -61,9 +62,9 @@ class Report extends BaseModel
      */
     protected function customers($options = [])
     {
-        $this->endpoint = 'reports/customers/totals';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/customers/totals')
+            ->all($options);
     }
 
     /**
@@ -75,9 +76,9 @@ class Report extends BaseModel
      */
     protected function orders($options = [])
     {
-        $this->endpoint = 'reports/orders/totals';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/orders/totals')
+            ->all($options);
     }
 
     /**
@@ -89,9 +90,9 @@ class Report extends BaseModel
      */
     protected function products($options = [])
     {
-        $this->endpoint = 'reports/products/totals';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/products/totals')
+            ->all($options);
     }
 
     /**
@@ -103,8 +104,8 @@ class Report extends BaseModel
      */
     protected function reviews($options = [])
     {
-        $this->endpoint = 'reports/reviews/totals';
-
-        return self::all($options);
+        return Query::init()
+            ->setEndpoint('reports/reviews/totals')
+            ->all($options);
     }
 }
