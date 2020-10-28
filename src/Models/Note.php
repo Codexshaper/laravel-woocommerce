@@ -77,9 +77,9 @@ class Note extends BaseModel
      * Paginate results.
      *
      *
-     * @param int $order_id
-     * @param int $per_page
-     * @param int $current_page
+     * @param int   $order_id
+     * @param int   $per_page
+     * @param int   $current_page
      * @param array $options
      *
      * @return array

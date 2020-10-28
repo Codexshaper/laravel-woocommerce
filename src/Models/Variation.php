@@ -2,8 +2,8 @@
 
 namespace Codexshaper\WooCommerce\Models;
 
-use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 use Codexshaper\WooCommerce\Facades\Query;
+use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
 class Variation extends BaseModel
 {
@@ -70,7 +70,7 @@ class Variation extends BaseModel
     {
         return Query::init()
             ->setEndpoint("products/{$product_id}/variations")
-            ->update($id, $data);;
+            ->update($id, $data);
     }
 
     /**
@@ -107,9 +107,9 @@ class Variation extends BaseModel
     /**
      * Paginate results.
      *
-     * @param int $product_id
-     * @param int $per_page
-     * @param int $current_page
+     * @param int   $product_id
+     * @param int   $per_page
+     * @param int   $current_page
      * @param array $options
      *
      * @return array

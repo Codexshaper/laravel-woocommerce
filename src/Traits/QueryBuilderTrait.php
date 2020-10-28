@@ -55,7 +55,6 @@ trait QueryBuilderTrait
         }
 
         return WooCommerce::all($this->endpoint, $options);
-        
     }
 
     /**
@@ -186,7 +185,6 @@ trait QueryBuilderTrait
      */
     protected function first()
     {
-
         if ($this->isLazyCollection) {
             return LazyCollection::make($this->get()[0] ?? new \stdClass());
         }
@@ -310,8 +308,8 @@ trait QueryBuilderTrait
     /**
      * Paginate results.
      *
-     * @param int $per_page
-     * @param int $current_page
+     * @param int   $per_page
+     * @param int   $current_page
      * @param array $options
      *
      * @return array
@@ -357,7 +355,6 @@ trait QueryBuilderTrait
             }
 
             return $results;
-
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage(), 1);
         }
