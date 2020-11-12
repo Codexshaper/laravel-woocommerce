@@ -345,7 +345,7 @@ trait QueryBuilderTrait
             ];
 
             $results = [
-                'pagination' => $pagination,
+                'meta' => $pagination,
                 'data'       => $data,
             ];
 
