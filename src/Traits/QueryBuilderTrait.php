@@ -346,7 +346,7 @@ trait QueryBuilderTrait
 
             $results = [
                 'pagination' => $pagination,
-                'data' => $data,
+                'data'       => $data,
             ];
 
             if ($this->isLazyCollection) {
