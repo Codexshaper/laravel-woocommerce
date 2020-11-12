@@ -327,7 +327,7 @@ trait QueryBuilderTrait
                 $this->options[$option] = $value;
             }
 
-            $results = $this->get();
+            $data = $this->get();
             $totalResults = WooCommerce::countResults();
             $totalPages = WooCommerce::countPages();
             $currentPage = WooCommerce::current();
@@ -344,7 +344,10 @@ trait QueryBuilderTrait
                 'last_page'     => $totalResults,
             ];
 
-            $results['pagination'] = $pagination;
+            $results = [
+                'pagination' => $pagination,
+                'data' => $data,
+            ];
 
             if ($this->isLazyCollection) {
                 return LazyCollection::make($results);
