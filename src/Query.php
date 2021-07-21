@@ -2,10 +2,10 @@
 
 namespace Codexshaper\WooCommerce;
 
-use Codexshaper\WooCommerce\Models\BaseMOdel;
+use Codexshaper\WooCommerce\Models\BaseModel;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Query extends BaseMOdel
+class Query extends BaseModel
 {
     use QueryBuilderTrait;
 
