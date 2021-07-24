@@ -27,33 +27,25 @@ class WooCommerceApi
     public function __construct()
     {
         try {
-           $this->forStore();
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
-        }
-    }
-
-    public function forStore(string $store="")
-    {
-        if ( $store !=="" ) {
-            $store = "multisite." . $store;
-        }
-         $this->headers = [
-                'header_total'       => config($store.'.header_total') ?? 'X-WP-Total',
-                'header_total_pages' => config($store.'.header_total_pages') ?? 'X-WP-TotalPages',
+            $this->headers = [
+                'header_total'       => config('woocommerce.header_total') ?? 'X-WP-Total',
+                'header_total_pages' => config('woocommerce.header_total_pages') ?? 'X-WP-TotalPages',
             ];
 
             $this->client = new Client(
-                config($store.'.store_url'),
-                config($store.'.consumer_key'),
-                config($store.'.consumer_secret'),
+                config('woocommerce.store_url'),
+                config('woocommerce.consumer_key'),
+                config('woocommerce.consumer_secret'),
                 [
-                    'version'           => 'wc/'.config($store.'.api_version'),
-                    'wp_api'            => config($store.'.wp_api_integration'),
-                    'verify_ssl'        => config($store.'.verify_ssl'),
-                    'query_string_auth' => config($store.'.query_string_auth'),
-                    'timeout'           => config($store.'.timeout'),
+                    'version'           => 'wc/'.config('woocommerce.api_version'),
+                    'wp_api'            => config('woocommerce.wp_api_integration'),
+                    'verify_ssl'        => config('woocommerce.verify_ssl'),
+                    'query_string_auth' => config('woocommerce.query_string_auth'),
+                    'timeout'           => config('woocommerce.timeout'),
                 ]
             );
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), 1);
+        }
     }
 }
