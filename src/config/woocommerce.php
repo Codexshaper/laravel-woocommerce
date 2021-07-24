@@ -6,7 +6,7 @@ return [
      * Store URL eg: http://example.com
      *================================================================================.
      */
-    'store_url'         => env('WOOCOMMERCE_STORE_URL', 'YOUR_STORE_URL'),
+    'store_url'         =>  config( "multisite." . env('WOOCOMMERCE_DEFAULT_STORE', 'development') ".store_url"),
 
     /**
      *================================================================================
