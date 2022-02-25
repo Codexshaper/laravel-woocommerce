@@ -60,6 +60,7 @@
                 "Variation": "Codexshaper\\WooCommerce\\Models\\Variation",
                 "Webhook": "Codexshaper\\WooCommerce\\Facades\\Webhook",
                 "WooCommerce": "Codexshaper\\WooCommerce\\Facades\\WooCommerce",
+                "WooAnalytics": "Codexshaper\\WooCommerce\\Facades\\WooAnalytics",
                 "Query": "Codexshaper\\WooCommerce\\Facades\\Query"
             }
         }
