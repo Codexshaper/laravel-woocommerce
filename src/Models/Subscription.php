@@ -22,7 +22,7 @@ class Subscription extends BaseModel
     protected function notes($subscription_id, $options = [])
     {
         return Query::init()
-            ->setEndpoint("subscription/{$subscription_id}/notes")
+            ->setEndpoint("subscriptions/{$subscription_id}/notes")
             ->all($options);
     }
 
