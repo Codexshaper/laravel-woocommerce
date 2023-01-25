@@ -272,7 +272,7 @@ trait QueryBuilderTrait
     protected function where(...$parameters)
     {
         if (count($parameters) < 2 || count($parameters) > 3) {
-            throw new \Exception('You can pass minimum 2 and maximum 3 paramneters');
+            throw new \Exception('You can pass minimum 2 and maximum 3 parameters');
         }
         $field = strtolower($parameters[0]);
         $value = count($parameters) == 3 ? $parameters[2] : $parameters[1];
