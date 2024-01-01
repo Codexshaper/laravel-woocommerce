@@ -27,25 +27,30 @@ class WooCommerceApi
     public function __construct()
     {
         try {
-            $this->headers = [
-                'header_total'       => config('woocommerce.header_total') ?? 'X-WP-Total',
-                'header_total_pages' => config('woocommerce.header_total_pages') ?? 'X-WP-TotalPages',
-            ];
-
-            $this->client = new Client(
-                config('woocommerce.store_url'),
-                config('woocommerce.consumer_key'),
-                config('woocommerce.consumer_secret'),
-                [
-                    'version'           => 'wc/'.config('woocommerce.api_version'),
-                    'wp_api'            => config('woocommerce.wp_api_integration'),
-                    'verify_ssl'        => config('woocommerce.verify_ssl'),
-                    'query_string_auth' => config('woocommerce.query_string_auth'),
-                    'timeout'           => config('woocommerce.timeout'),
-                ]
-            );
+            $this->setConfig( config('multisite.' . config('multisite.default') ));
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), 1);
         }
+    }
+
+    public function setConfig($configSet)
+    {
+        $this->headers = [
+            'header_total'       => $configSet['header_total'] ?? 'X-WP-Total',
+            'header_total_pages' => $configSet['header_total_pages'] ?? 'X-WP-TotalPages',
+        ];
+
+        $this->client = new Client(
+            $configSet['tore_url'],
+            $configSet['consumer_key'],
+            $configSet['consumer_secret'],
+            [
+                'version'           => 'wc/' . $configSet['api_version'],
+                'wp_api'            => $configSet['wp_api_integration'],
+                'verify_ssl'        => $configSet['verify_ssl'],
+                'query_string_auth' => $configSet['query_string_auth'],
+                'timeout'           => $configSet['timeout'],
+            ]
+        );
     }
 }

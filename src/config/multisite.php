@@ -1,6 +1,8 @@
-<?php 
+<?php
 
 return [
+    'default' => 'development',
+
    "development" => [
       "store_url" => "YOUR_STORE_URL",
       "consumer_key" => "YOUR_CONSUMER_KEY",
