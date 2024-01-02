@@ -41,16 +41,18 @@ class WooCommerceApi
         ];
 
         $this->client = new Client(
-            $configSet['tore_url'],
+            $configSet['store_url'],
             $configSet['consumer_key'],
             $configSet['consumer_secret'],
             [
                 'version'           => 'wc/' . $configSet['api_version'],
-                'wp_api'            => $configSet['wp_api_integration'],
+                'wp_api'            => $configSet['wp_api'],
                 'verify_ssl'        => $configSet['verify_ssl'],
                 'query_string_auth' => $configSet['query_string_auth'],
                 'timeout'           => $configSet['timeout'],
             ]
         );
+
+        return $this;
     }
 }
