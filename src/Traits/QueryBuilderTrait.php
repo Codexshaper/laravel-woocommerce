@@ -40,12 +40,19 @@ trait QueryBuilderTrait
 
     protected $config = [];
 
+    private $wooInstance = null;
+
     protected function wooCommerceInstance()
     {
+        if ($this->wooInstance) {
+            return $this->wooInstance;
+        }
 
-        return  sizeof($this->config) == 0 || !$this->config
-            ? new WooCommerceApi()
-            : (new WooCommerceApi())->setConfig($this->config);
+        $this->wooInstance = sizeof($this->config) == 0 || !$this->config
+                                ? new WooCommerceApi()
+                                : (new WooCommerceApi())->setConfig($this->config);
+
+        return $this->wooInstance;
     }
 
 
