@@ -26,30 +26,32 @@ class WooCommerceApi
      */
     public function __construct()
     {
-        try {
-            $this->setConfig( config('multisite.' . config('multisite.default') ));
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
-        }
+//        try {
+//            $this->setConfig(  config('multisite.default') );
+//        } catch (\Exception $e) {
+//            throw new \Exception($e->getMessage(), 1);
+//        }
     }
 
-    public function setConfig($configSet)
+    public function setConfig($config)
     {
+        $config = config('multisite.' . $config);
+
         $this->headers = [
-            'header_total'       => $configSet['header_total'] ?? 'X-WP-Total',
-            'header_total_pages' => $configSet['header_total_pages'] ?? 'X-WP-TotalPages',
+            'header_total'       => $config['header_total'] ?? 'X-WP-Total',
+            'header_total_pages' => $config['header_total_pages'] ?? 'X-WP-TotalPages',
         ];
 
         $this->client = new Client(
-            $configSet['store_url'],
-            $configSet['consumer_key'],
-            $configSet['consumer_secret'],
+            $config['store_url'],
+            $config['consumer_key'],
+            $config['consumer_secret'],
             [
-                'version'           => 'wc/' . $configSet['api_version'],
-                'wp_api'            => $configSet['wp_api'],
-                'verify_ssl'        => $configSet['verify_ssl'],
-                'query_string_auth' => $configSet['query_string_auth'],
-                'timeout'           => $configSet['timeout'],
+                'version'           => 'wc/' . $config['api_version'],
+                'wp_api'            => $config['wp_api'],
+                'verify_ssl'        => $config['verify_ssl'],
+                'query_string_auth' => $config['query_string_auth'],
+                'timeout'           => $config['timeout'],
             ]
         );
 

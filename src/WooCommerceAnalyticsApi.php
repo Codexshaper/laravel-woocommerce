@@ -26,26 +26,35 @@ class WooCommerceAnalyticsApi
      */
     public function __construct()
     {
-        try {
-            $this->headers = [
-                'header_total'       => config('woocommerce.header_total') ?? 'X-WP-Total',
-                'header_total_pages' => config('woocommerce.header_total_pages') ?? 'X-WP-TotalPages',
-            ];
+//        try {
+//            $this->setConfig(  $this->config ?? config('multisite.default') );
+//        } catch (\Exception $e) {
+//            throw new \Exception($e->getMessage(), 1);
+//        }
+    }
 
-            $this->client = new Client(
-                config('woocommerce.store_url'),
-                config('woocommerce.consumer_key'),
-                config('woocommerce.consumer_secret'),
-                [
-                    'version'           => 'wc-analytics',
-                    'wp_api'            => config('woocommerce.wp_api_integration'),
-                    'verify_ssl'        => config('woocommerce.verify_ssl'),
-                    'query_string_auth' => config('woocommerce.query_string_auth'),
-                    'timeout'           => config('woocommerce.timeout'),
-                ]
-            );
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
-        }
+    public function setConfig($configSet)
+    {
+        $config = config('multisite.' . $configSet);
+
+        $this->headers = [
+            'header_total'       => $config['header_total'] ?? 'X-WP-Total',
+            'header_total_pages' => $config['header_total_pages'] ?? 'X-WP-TotalPages',
+        ];
+
+        $this->client = new Client(
+            $config['store_url'],
+            $config['consumer_key'],
+            $config['consumer_secret'],
+            [
+                'version'           => 'wc/' . $config['api_version'],
+                'wp_api'            => $config['wp_api'],
+                'verify_ssl'        => $config['verify_ssl'],
+                'query_string_auth' => $config['query_string_auth'],
+                'timeout'           => $config['timeout'],
+            ]
+        );
+
+        return $this;
     }
 }

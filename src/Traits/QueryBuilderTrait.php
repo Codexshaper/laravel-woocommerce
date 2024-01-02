@@ -38,9 +38,16 @@ trait QueryBuilderTrait
      */
     protected $isOriginal = false;
 
-    protected $config = [];
+    protected string $config;
 
     private $wooInstance = null;
+
+    protected function withConfig(string $config)
+    {
+        $this->config =  $config;
+
+        return $this;
+    }
 
     protected function wooCommerceInstance()
     {
@@ -48,9 +55,8 @@ trait QueryBuilderTrait
             return $this->wooInstance;
         }
 
-        $this->wooInstance = sizeof($this->config) == 0 || !$this->config
-                                ? new WooCommerceApi()
-                                : (new WooCommerceApi())->setConfig($this->config);
+        $this->wooInstance = (new WooCommerceApi())
+                            ->setConfig($this->config ?? config('multisite.default') );
 
         return $this->wooInstance;
     }
@@ -253,13 +259,6 @@ trait QueryBuilderTrait
         $this->isOriginal = false;
         $this->isCollection = false;
         $this->isLazyCollection = true;
-
-        return $this;
-    }
-
-    protected function withConfig(string $configSet): static
-    {
-        $this->config = config('multisite.' . $configSet);
 
         return $this;
     }
