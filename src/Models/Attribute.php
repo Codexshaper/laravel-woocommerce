@@ -21,7 +21,7 @@ class Attribute extends BaseModel
      */
     protected function getTerms($attribute_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Attribute extends BaseModel
      */
     protected function getTerm($attribute_id, $term_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->find($term_id, $options);
     }
@@ -52,7 +52,7 @@ class Attribute extends BaseModel
      */
     protected function addTerm($attribute_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Attribute extends BaseModel
      */
     protected function updateTerm($attribute_id, $term_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->update($term_id, $data);
     }
@@ -84,7 +84,7 @@ class Attribute extends BaseModel
      */
     protected function deleteTerm($attribute_id, $term_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->delete($term_id, $options);
     }
@@ -99,7 +99,7 @@ class Attribute extends BaseModel
      */
     protected function batchTerm($attribute_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->batch($data);
     }

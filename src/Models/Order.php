@@ -21,7 +21,7 @@ class Order extends BaseModel
      */
     protected function notes($order_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Order extends BaseModel
      */
     protected function note($order_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->find($note_id, $options);
     }
@@ -52,7 +52,7 @@ class Order extends BaseModel
      */
     protected function createNote($order_id, $data = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Order extends BaseModel
      */
     protected function deleteNote($order_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->delete($note_id, $options);
     }
@@ -83,7 +83,7 @@ class Order extends BaseModel
      */
     protected function refunds($order_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->all($options);
     }
@@ -99,7 +99,7 @@ class Order extends BaseModel
      */
     protected function refund($order_id, $refund_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->find($refund_id, $options);
     }
@@ -114,7 +114,7 @@ class Order extends BaseModel
      */
     protected function createRefund($order_id, $data = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->create($data);
     }
@@ -130,7 +130,7 @@ class Order extends BaseModel
      */
     protected function deleteRefund($order_id, $refund_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->delete($refund_id, $options);
     }

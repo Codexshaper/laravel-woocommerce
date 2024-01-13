@@ -22,7 +22,7 @@ class Setting extends BaseModel
      */
     protected function option($group_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("settings/{$group_id}")
             ->find($id, $options);
     }
@@ -37,7 +37,7 @@ class Setting extends BaseModel
      */
     protected function options($id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('settings')
             ->find($id, $options);
     }
@@ -53,7 +53,7 @@ class Setting extends BaseModel
      */
     protected function update($group_id, $id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("settings/{$group_id}")
             ->update($id, $data);
     }
@@ -67,7 +67,7 @@ class Setting extends BaseModel
      */
     protected function batch($id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("settings/{$id}")
             ->batch($data);
     }

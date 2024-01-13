@@ -21,7 +21,7 @@ class Note extends BaseModel
      */
     protected function all($order_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Note extends BaseModel
      */
     protected function find($order_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->find($note_id, $options);
     }
@@ -52,7 +52,7 @@ class Note extends BaseModel
      */
     protected function create($order_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Note extends BaseModel
      */
     protected function delete($order_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->delete($note_id, $options);
     }
@@ -90,7 +90,7 @@ class Note extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->paginate($per_page, $current_page, $options);
     }
@@ -104,7 +104,7 @@ class Note extends BaseModel
      */
     protected function count($order_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->count();
     }
@@ -118,7 +118,7 @@ class Note extends BaseModel
      */
     public function save($order_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/notes")
             ->save();
     }

@@ -22,7 +22,7 @@ class ShippingZone extends BaseModel
      */
     protected function getLocations($id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$id}/locations")
             ->all($options);
     }
@@ -50,7 +50,7 @@ class ShippingZone extends BaseModel
      */
     protected function addShippingZoneMethod($id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$id}/methods")
             ->create($data);
     }
@@ -66,7 +66,7 @@ class ShippingZone extends BaseModel
      */
     protected function getShippingZoneMethod($zone_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$zone_id}/methods")
             ->find($id, $options);
     }
@@ -81,7 +81,7 @@ class ShippingZone extends BaseModel
      */
     protected function getShippingZoneMethods($id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$id}/methods")
             ->all($options);
     }
@@ -97,7 +97,7 @@ class ShippingZone extends BaseModel
      */
     protected function updateShippingZoneMethod($zone_id, $id, $data = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$zone_id}/methods")
             ->update($id, $data);
     }
@@ -113,7 +113,7 @@ class ShippingZone extends BaseModel
      */
     protected function deleteShippingZoneMethod($zone_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("shipping/zones/{$zone_id}/methods")
             ->delete($id, $options);
     }

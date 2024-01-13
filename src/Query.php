@@ -24,10 +24,10 @@ class Query extends BaseModel
         return $this;
     }
 
-    public function init()
+    public function init($config)
     {
         if (!static::$instance) {
-            static::$instance = new static();
+            static::$instance = (new static())->withConfig($config);
         }
 
         return static::$instance;

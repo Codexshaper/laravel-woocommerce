@@ -21,7 +21,7 @@ class Term extends BaseModel
      */
     protected function all($attribute_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Term extends BaseModel
      */
     protected function find($attribute_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->find($id, $options);
     }
@@ -52,7 +52,7 @@ class Term extends BaseModel
      */
     protected function create($attribute_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Term extends BaseModel
      */
     protected function update($attribute_id, $id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->update($id, $data);
     }
@@ -84,7 +84,7 @@ class Term extends BaseModel
      */
     protected function delete($attribute_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->delete($id, $options);
     }
@@ -99,7 +99,7 @@ class Term extends BaseModel
      */
     protected function batch($attribute_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->batch($data);
     }
@@ -120,7 +120,7 @@ class Term extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->paginate($per_page, $current_page, $options);
     }
@@ -134,7 +134,7 @@ class Term extends BaseModel
      */
     protected function count($attribute_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->count();
     }
@@ -148,7 +148,7 @@ class Term extends BaseModel
      */
     public function save($attribute_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/attributes/{$attribute_id}/terms")
             ->save();
     }

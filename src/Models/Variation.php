@@ -21,7 +21,7 @@ class Variation extends BaseModel
      */
     protected function all($product_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Variation extends BaseModel
      */
     protected function find($product_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->find($id, $options);
     }
@@ -52,7 +52,7 @@ class Variation extends BaseModel
      */
     protected function create($product_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Variation extends BaseModel
      */
     protected function update($product_id, $id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->update($id, $data);
     }
@@ -84,7 +84,7 @@ class Variation extends BaseModel
      */
     protected function delete($product_id, $id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->delete($id, $options);
     }
@@ -99,7 +99,7 @@ class Variation extends BaseModel
      */
     protected function batch($product_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->batch($data);
     }
@@ -120,7 +120,7 @@ class Variation extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->paginate($per_page, $current_page, $options);
     }
@@ -134,7 +134,7 @@ class Variation extends BaseModel
      */
     protected function count($product_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->count();
     }
@@ -148,7 +148,7 @@ class Variation extends BaseModel
      */
     public function save($product_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("products/{$product_id}/variations")
             ->save();
     }

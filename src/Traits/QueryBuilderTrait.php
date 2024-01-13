@@ -46,6 +46,8 @@ trait QueryBuilderTrait
     {
         $this->config =  $config;
 
+        $this->wooCommerceInstance();
+
         return $this;
     }
 
@@ -55,8 +57,7 @@ trait QueryBuilderTrait
             return $this->wooInstance;
         }
 
-        $this->wooInstance = (new WooCommerceApi())
-                            ->setConfig($this->config ?? config('multisite.default') );
+        $this->wooInstance = new WooCommerceApi($this->config ?? config('multisite.default'));
 
         return $this->wooInstance;
     }
