@@ -27,7 +27,7 @@ class Query extends BaseModel
     public function init($config)
     {
         if (!static::$instance) {
-            static::$instance = (new static())->withConfig($config);
+            static::$instance = (new static())->withConfig($config ?? config('multisite.default'));
         }
 
         return static::$instance;
