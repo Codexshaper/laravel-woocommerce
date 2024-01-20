@@ -38,7 +38,7 @@ trait QueryBuilderTrait
      */
     protected $isOriginal = false;
 
-    protected string $config;
+    protected ?string $config = null;
 
     private $wooInstance = null;
 
