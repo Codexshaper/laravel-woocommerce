@@ -10,12 +10,12 @@ class WooCommerceAnalyticsApi
     use WooCommerceTrait;
 
     /**
-     *@var \Automattic\WooCommerce\Client
+     * @var \Automattic\WooCommerce\Client
      */
     protected $client;
 
     /**
-     *@var array
+     * @var array
      */
     protected $headers = [];
 
