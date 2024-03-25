@@ -20,7 +20,7 @@ class System extends BaseModel
      */
     protected function status($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('system_status')
             ->all($options);
     }
@@ -35,7 +35,7 @@ class System extends BaseModel
      */
     protected function tool($id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('system_status/tools')
             ->find($id, $options);
     }
@@ -49,7 +49,7 @@ class System extends BaseModel
      */
     protected function tools($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('system_status/tools')
             ->all($options);
     }
@@ -64,7 +64,7 @@ class System extends BaseModel
      */
     protected function run($id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('system_status/tools')
             ->update($id, $data);
     }

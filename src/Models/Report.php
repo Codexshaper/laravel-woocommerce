@@ -20,7 +20,7 @@ class Report extends BaseModel
      */
     protected function sales($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/sales')
             ->all($options);
     }
@@ -34,7 +34,7 @@ class Report extends BaseModel
      */
     protected function topSellers($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/top_sellers')
             ->all($options);
     }
@@ -48,7 +48,7 @@ class Report extends BaseModel
      */
     protected function coupons($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/coupons/totals')
             ->all($options);
     }
@@ -62,7 +62,7 @@ class Report extends BaseModel
      */
     protected function customers($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/customers/totals')
             ->all($options);
     }
@@ -76,7 +76,7 @@ class Report extends BaseModel
      */
     protected function orders($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/orders/totals')
             ->all($options);
     }
@@ -90,7 +90,7 @@ class Report extends BaseModel
      */
     protected function products($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/products/totals')
             ->all($options);
     }
@@ -104,7 +104,7 @@ class Report extends BaseModel
      */
     protected function reviews($options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint('reports/reviews/totals')
             ->all($options);
     }

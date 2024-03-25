@@ -15,6 +15,7 @@ class WooCommerceServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/config/woocommerce.php' => config_path('woocommerce.php'),
+            __DIR__.'/config/multisite.php' => config_path('multisite.php'),
         ], 'woocommerce');
     }
 
@@ -30,9 +31,9 @@ class WooCommerceServiceProvider extends ServiceProvider
             'woocommerce'
         );
 
-        $this->app->singleton('WooCommerceApi', function () {
-            return new WooCommerceApi();
-        });
-        $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WooCommerceApi');
+//        $this->app->singleton('WooCommerceApi', function () {
+//            return new WooCommerceApi();
+//        });
+//        $this->app->alias('Codexshaper\Woocommerce\WooCommerceApi', 'WooCommerceApi');
     }
 }

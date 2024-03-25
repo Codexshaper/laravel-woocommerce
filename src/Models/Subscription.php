@@ -21,7 +21,7 @@ class Subscription extends BaseModel
      */
     protected function notes($subscription_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("subscriptions/{$subscription_id}/notes")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Subscription extends BaseModel
      */
     protected function note($subscription_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("subscriptions/{$subscription_id}/notes")
             ->find($note_id, $options);
     }
@@ -52,7 +52,7 @@ class Subscription extends BaseModel
      */
     protected function createNote($subscription_id, $data = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("subscriptions/{$subscription_id}/notes")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Subscription extends BaseModel
      */
     protected function deleteNote($subscription_id, $note_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("subscriptions/{$subscription_id}/notes")
             ->delete($note_id, $options);
     }
@@ -83,7 +83,7 @@ class Subscription extends BaseModel
      */
     protected function orders($subscription_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("subscriptions/{$subscription_id}/orders")
             ->all($options);
     }

@@ -20,7 +20,7 @@ class Customer extends BaseModel
      */
     protected function downloads($id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("customers/{$id}/downloads")
             ->all($options);
     }

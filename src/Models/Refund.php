@@ -21,7 +21,7 @@ class Refund extends BaseModel
      */
     protected function all($order_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->all($options);
     }
@@ -37,7 +37,7 @@ class Refund extends BaseModel
      */
     protected function find($order_id, $refund_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->find($refund_id, $options);
     }
@@ -52,7 +52,7 @@ class Refund extends BaseModel
      */
     protected function create($order_id, $data)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->create($data);
     }
@@ -68,7 +68,7 @@ class Refund extends BaseModel
      */
     protected function delete($order_id, $refund_id, $options = [])
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->delete($refund_id, $options);
     }
@@ -89,7 +89,7 @@ class Refund extends BaseModel
         $current_page = 1,
         $options = []
     ) {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->paginate($per_page, $current_page, $options);
     }
@@ -103,7 +103,7 @@ class Refund extends BaseModel
      */
     protected function count($order_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->count();
     }
@@ -117,7 +117,7 @@ class Refund extends BaseModel
      */
     public function save($order_id)
     {
-        return Query::init()
+        return Query::init($this->config)
             ->setEndpoint("orders/{$order_id}/refunds")
             ->save();
     }
